@@ -9,6 +9,7 @@ mod postgres_config;
 pub mod roles;
 pub mod runserver;
 pub mod search_commands;
+pub mod seed;
 pub mod stdcm_search_env_commands;
 mod telemetry_config;
 mod trains_traffic;
@@ -96,6 +97,8 @@ pub enum Commands {
     Healthcheck(CoreArgs),
     #[command(about, long_about = "Garbage collector")]
     Gc,
+    #[command(about, long_about = "Seed the database with initial data")]
+    Seed,
 }
 
 /// Prints the OpenApi to stdout

@@ -166,15 +166,15 @@ services:
       valkey: { condition: service_healthy }
       rabbitmq: { condition: service_healthy }
       openfga: { condition: service_started }
-    # build:
-    #   context: editoast
-    #   dockerfile: Dockerfile
-    #   additional_contexts:
-    #     test_data: tests/data
-    #     static_assets: assets
-    #   args:
-    #     CARGO_PROFILE: dev
-    #     OSRD_GIT_DESCRIBE: development
+    build:
+      context: editoast
+      dockerfile: Dockerfile
+      additional_contexts:
+        test_data: tests/data
+        static_assets: assets
+      args:
+        CARGO_PROFILE: dev
+        OSRD_GIT_DESCRIBE: development
     restart: unless-stopped
     ports: [ "8090:80" ]
     environment:

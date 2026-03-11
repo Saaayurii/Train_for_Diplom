@@ -31,6 +31,7 @@ use client::roles;
 use client::roles::RolesCommand;
 use client::runserver::runserver;
 use client::search_commands::*;
+use client::seed::seed_database;
 use client::stdcm_search_env_commands::handle_stdcm_search_env_command;
 use client::user;
 use client::user::UserCommand;
@@ -230,5 +231,6 @@ async fn run() -> anyhow::Result<()> {
             healthcheck_cmd(db_pool.into(), valkey_config, core_config, openfga_config).await
         }
         Commands::Gc => garbage_collector::run_garbage_collector(db_pool.into()).await,
+        Commands::Seed => seed_database(db_pool).await,
     }
 }

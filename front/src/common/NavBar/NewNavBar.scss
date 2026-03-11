@@ -1,0 +1,25 @@
+.nav-bar {
+  .main-nav {
+    display: flex;
+    gap: 2rem;
+    background-color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    a, button {
+      color: #333;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      &:hover {
+        color: #14b8a6;
+      }
+    }
+  }
+
+  .user-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+}

@@ -11,7 +11,7 @@ import { ModalProvider } from 'common/BootstrapSNCF/ModalSNCF/ModalProvider';
 import NavBar from 'common/NavBar';
 
 export default function Home() {
-  const { t } = useTranslation('translation', { keyPrefix: 'applications' });
+  const { t } = useTranslation('translation');
   const {
     operationalStudiesAllowed,
     stdcmAllowed,
@@ -32,8 +32,8 @@ export default function Home() {
             >
               <CardSNCF
                 img={operationalStudiesImg}
-                title={t('operational-studies')}
-                description={t('descriptions.operational-studies')}
+                title={t('applications.operational-studies')}
+                description={t('applications.descriptions.operational-studies')}
                 link="/operational-studies/projects"
                 data-testid="operationalStudies"
               />
@@ -45,8 +45,8 @@ export default function Home() {
             >
               <CardSNCF
                 img={stdcmImg}
-                title={t('stdcm')}
-                description={t('descriptions.stdcm')}
+                title={t('applications.stdcm')}
+                description={t('applications.descriptions.stdcm')}
                 link="/stdcm"
                 openInNewTab
               />
@@ -61,8 +61,8 @@ export default function Home() {
                 >
                   <CardSNCF
                     img={editorImg}
-                    title={t('infrastructures-editor')}
-                    description={t('descriptions.infrastructures-editor')}
+                    title={t('applications.infrastructures-editor')}
+                    description={t('applications.descriptions.infrastructures-editor')}
                     link="/editor"
                   />
                 </div>
@@ -73,8 +73,8 @@ export default function Home() {
                 >
                   <CardSNCF
                     img={rollingStockEditorImg}
-                    title={t('rolling-stocks-editor')}
-                    description={t('descriptions.rolling-stocks-editor')}
+                    title={t('applications.rolling-stocks-editor')}
+                    description={t('applications.descriptions.rolling-stocks-editor')}
                     link="/rolling-stock-editor"
                   />
                 </div>
@@ -85,8 +85,8 @@ export default function Home() {
                 >
                   <CardSNCF
                     img={mapImg}
-                    title={t('reference-map')}
-                    description={t('descriptions.reference-map')}
+                    title={t('applications.reference-map')}
+                    description={t('applications.descriptions.reference-map')}
                     link="/map"
                   />
                 </div>

@@ -1,18 +1,20 @@
 import { useMemo, type ReactElement } from 'react';
 
-import { Hubot, Person, ShieldCheck, XCircle } from '@osrd-project/ui-icons';
+import { Hubot, Person, Info, Report, Gear, SignOut } from '@osrd-project/ui-icons';
 import cx from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { useModal } from 'common/BootstrapSNCF/ModalSNCF';
+import HelpModalSNCF from 'common/BootstrapSNCF/HelpModalSNCF';
 import { getUserSafeWord } from 'reducers/user/userSelectors';
 import useAuth from 'utils/hooks/useAuth';
 import useDeploymentSettings from 'utils/hooks/useDeploymentSettings';
 
-import UserActionsDropdown from './UserActionsDropdown';
+import ReleaseInformation from './ReleaseInformation';
 import UserSettings from './UserSettings';
+import './NewNavBar.scss';
 
 type NavBarProps = {
   appName?: string | ReactElement;
@@ -21,10 +23,14 @@ type NavBarProps = {
 const NavBar = ({ appName }: NavBarProps) => {
   const { openModal } = useModal();
   const deploymentSettings = useDeploymentSettings();
-  const safeWord = useSelector(getUserSafeWord);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-  const { username, impersonatedUser, impersonate } = useAuth();
+  const { username, impersonatedUser, impersonate, logout } = useAuth();
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'ru' ? 'en' : 'ru';
+    i18n.changeLanguage(newLang);
+  };
 
   const { logoUrl, name } = useMemo(() => {
     if (!deploymentSettings)
@@ -67,38 +73,31 @@ const NavBar = ({ appName }: NavBarProps) => {
           ) : (
             <div style={{ width: '24px' }} />
           )}
+          <span className="app-name-text">{name}</span>
         </Link>
       </div>
-      <header role="banner" className="d-flex flex-grow-1">
-        <h1 className="text-white pl-3 mb-0">{appName}</h1>
-      </header>
-      <ul className="right-tool-bar">
-        {safeWord && (
-          <li className="item">
-            <button
-              type="button"
-              className="safe-word-btn"
-              onClick={() => openModal(<UserSettings />)}
-              aria-label={t('nav-bar.userSettings')}
-              title={t('nav-bar.userSettings')}
-            >
-              <ShieldCheck />
-            </button>
-          </li>
-        )}
-        <li className={cx('item', { 'with-separator': !!safeWord })}>
-          <UserActionsDropdown titleContent={userDropdownTitle} />
-          {impersonatedUser && (
-            <button
-              className="impersonated-user"
-              type="button"
-              onClick={() => impersonate(undefined)}
-            >
-              <XCircle variant="fill" />
-            </button>
-          )}
-        </li>
-      </ul>
+
+      <nav className="main-nav">
+        <button type="button" onClick={() => openModal(<ReleaseInformation />, 'lg')}>
+          {t('nav-bar.about')}
+        </button>
+        <button type="button" onClick={() => openModal(<HelpModalSNCF />, 'lg')}>
+          {t('nav-bar.help')}
+        </button>
+        <button type="button" onClick={toggleLanguage}>
+          {t('nav-bar.languages')} ({i18n.language === 'ru' ? 'EN' : 'RU'})
+        </button>
+        <button type="button" onClick={() => openModal(<UserSettings />)}>
+          {t('nav-bar.userSettings')}
+        </button>
+      </nav>
+
+      <div className="user-actions">
+        {userDropdownTitle}
+        <button type="button" className="btn btn-dark" onClick={() => logout()}>
+          {t('nav-bar.disconnect')}
+        </button>
+      </div>
     </div>
   );
 };

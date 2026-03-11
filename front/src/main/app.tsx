@@ -14,6 +14,7 @@ import Stdcm from 'applications/stdcm/StdcmView';
 import Error403 from 'common/authorization/components/Error403';
 import InitialRedirect from 'common/authorization/components/InitialRedirect';
 import ErrorBoundary from 'common/ErrorBoundary';
+import Footer from 'common/Footer/Footer';
 import { Loader } from 'common/Loaders';
 import NotificationsState from 'common/Notifications';
 import { OsrdContextLayout } from 'common/osrdContext';
@@ -142,8 +143,11 @@ export default function App() {
     <Suspense fallback={<Loader />}>
       <DeploymentContextProvider>
         <NotificationsState />
-        {!isLoading && <RouterProvider router={router} />}
-        {isLoading && <Loader />}
+        <div style={{ position: 'relative', minHeight: '100vh' }}>
+          {!isLoading && <RouterProvider router={router} />}
+          {isLoading && <Loader />}
+          <Footer />
+        </div>
       </DeploymentContextProvider>
     </Suspense>
   );

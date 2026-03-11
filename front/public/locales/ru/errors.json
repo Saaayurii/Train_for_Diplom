@@ -1,0 +1,323 @@
+{
+  "401": "Неаутентифицированный пользователь",
+  "403": "Доступ запрещен",
+  "404": "Ресурс не найден",
+  "500": "Ошибки сервера",
+  "502": "Ошибки сервера",
+  "503": "Ошибки сервера",
+  "504": "Сервер не ответил.",
+  "core": {
+    "assert_error": "Ошибка утверждения в {{file_location}}: {{assert_message}}",
+    "missing_last_stdcm_stop": "Запросы STDCM, которые не заканчиваются остановкой, в настоящее время не поддерживаются"
+  },
+  "default": "Произошла ошибка.",
+  "editoast": {
+    "DatabaseAccessError": "Фатальная ошибка доступа к базе данных",
+    "app_health": {
+      "Core": "Ошибка в ядре",
+      "Database": "Ошибка в базе данных",
+      "Openfga": "Ошибка в OpenFGA",
+      "Timeout": "Служба не ответила вовремя",
+      "Valkey": "Ошибка в Valkey"
+    },
+    "attached": {
+      "TrackNotFound": "Путь {{track_id}} не найден"
+    },
+    "authz": {
+      "AuthError": "Внутренняя ошибка аутентификации/авторизации, попробуйте еще раз или обратитесь в службу поддержки",
+      "Authorizer": "Внутренняя ошибка",
+      "Authz": "Внутренняя ошибка аутентификации/авторизации, попробуйте еще раз или обратитесь в службу поддержки",
+      "Database": "Внутренняя ошибка (база данных)",
+      "DbError": "Фатальная ошибка доступа к базе данных",
+      "Driver": "Внутренняя ошибка аутентификации/авторизации, попробуйте еще раз или обратитесь в службу поддержки",
+      "Forbidden": "Доступ запрещен",
+      "ForbiddenImpersonation": "Имперсонация запрещена",
+      "GrantsApiMisuse": "Неправильное использование API",
+      "ImpersonatedUserNotFound": "Неизвестный имперсонированный пользователь",
+      "NoSuchUser": "Неизвестный пользователь",
+      "Unauthorized": "Неаутентифицированный пользователь",
+      "UnknownIdentity": "Неизвестная личность '{{identity}}'",
+      "UnknownResource": "Неизвестный ресурс",
+      "UnknownResourceType": "Неизвестный тип ресурса",
+      "UnknownSubject": "Неизвестный субъект",
+      "UnknownUser": "Неизвестный пользователь '{{id}}'"
+    },
+    "auto_fixes": {
+      "ConflictingFixesOnSameObject": "Конфликтующие исправления для одного и того же объекта в одной и той же итерации исправления",
+      "FixTrialFailure": "Не удалось применить исправления",
+      "MaximumIterationReached": "Достигнуто максимальное количество итераций для исправления инфраструктуры без предоставления всех возможных исправлений",
+      "MissingErrorObject": "Не удалось найти объект ошибки"
+    },
+    "cache_operation": {
+      "DuplicateIdsProvided": "{{obj_type}} {{obj_id}}: дубликат уже существует",
+      "ObjectNotFound": "{{obj_type}} {{obj_id}} не найден в кеше инфраструктуры"
+    },
+    "catalog_entry": {
+      "Database": "Внутренняя ошибка (база данных)",
+      "NotFound": "Запись каталога '{{catalog_entry_id}}' не найдена"
+    },
+    "core": {
+      "pathfinding": {
+        "ZeroLengthPath": "Длина пути не может быть нулевой."
+      }
+    },
+    "coreclient": {
+      "BrokenPipe": "Обрыв соединения с ядром. Следует повторить попытку.",
+      "CannotExtractResponseBody": "Невозможно извлечь тело ответа ядра: {{msg}}",
+      "CoreResponseFormatError": "Невозможно разобрать ответ ядра: {{msg}}",
+      "MqClientError": "Ядро: ошибка клиента MQ",
+      "UnparsableErrorOutput": "Ядро вернуло ошибку в неизвестном формате"
+    },
+    "delimited_area": {
+      "InvalidLocations": "Некоторые местоположения недействительны"
+    },
+    "document": {
+      "Database": "Внутренняя ошибка (база данных)",
+      "NotFound": "Документ '{{document_key}}' не найден"
+    },
+    "electrical_profiles": {
+      "Database": "Внутренняя ошибка (база данных)",
+      "NotFound": "Набор электрических профилей '{{electrical_profile_set_id}}' не найден"
+    },
+    "fonts": {
+      "FileNotFound": "Файл для запрошенного шрифта не найден"
+    },
+    "geometry": {
+      "UnexpectedGeometry": "Ожидалась геометрия {{expected}}, но получена {{actual}}"
+    },
+    "infra": {
+      "Database": "Внутренняя ошибка",
+      "NotFound": "Инфраструктура '{{infra_id}}' не найдена",
+      "edition": {
+        "InfraIsLocked": "Инфраструктура заблокирована",
+        "SplitTrackSectionBadOffset": "Расстояние для разделения участка пути '{{tracksection_id}}' в инфраструктуре '{{infra_id}}' недействительно. Оно должно быть от 0 до {{tracksection_length}} метров."
+      },
+      "errors": {
+        "WrongErrorTypeProvided": "Предоставлен неверный тип ошибки"
+      },
+      "lines": {
+        "LineNotFound": "Линия с кодом {{line_code}} не найдена"
+      },
+      "objects": {
+        "DuplicateIdsProvided": "Предоставлены дублирующиеся идентификаторы объектов",
+        "ObjectIdNotFound": "Объект '{{object_id}}' не найден"
+      },
+      "pathfinding": {
+        "EndingTrackLocationNotFound": "Конечное местоположение пути не найдено",
+        "InvalidNumberOfPaths": "Поиск пути не может вернуть 5 путей (ожидается: [1-5])",
+        "StartingTrackLocationNotFound": "Начальное местоположение пути не найдено"
+      }
+    },
+    "infra_cache": {
+      "ObjectNotFound": "{{obj_type}} '{{obj_id}}' не найден в кеше инфраструктуры"
+    },
+    "infra_state": {
+      "FetchError": "Ошибка при получении статуса загрузки инфраструктуры"
+    },
+    "layers": {
+      "LayerNotFound": "Слой {{layer_name}} не найден.",
+      "ViewNotFound": "Вид {{view_name}} не найден."
+    },
+    "level_crossing": {
+      "Database": "Внутренняя ошибка (база данных)",
+      "InfraNotFound": "Инфраструктура '{{infra_id}}' не найдена.",
+      "LevelCrossingBatchNotFound": "Не найдено '{{count}}' железнодорожных переездов.",
+      "TrainBatchNotFound": "Не найдено '{{count}}' поездов с заданным темпом."
+    },
+    "macro_node": {
+      "Database": "Внутренняя ошибка",
+      "NotFound": "Узел {{node_id}} не найден.",
+      "ScenarioNotFound": "Сценарий '{{scenario_id}}' не найден"
+    },
+    "macro_note": {
+      "Database": "Внутренняя ошибка (база данных)",
+      "NotFound": "Заметка '{{note_id}}' не найдена.",
+      "ScenarioNotFound": "Сценарий '{{scenario_id}}' не найден",
+      "WrongScenario": "Заметка '{note_id}' не принадлежит сценарию '{scenario_id}'"
+    },
+    "model": {
+      "ModelError": "Внутренняя ошибка (запрос к базе данных)"
+    },
+    "operation": {
+      "EmptyId": "Пустой идентификатор строки запрещен",
+      "InvalidPatch": "Произошла ошибка Json Patch",
+      "ModifyId": "Операция обновления пытается изменить идентификатор объекта, что запрещено",
+      "ObjectNotFound": "Объект '{{obj_id}}' не найден в инфраструктуре '{{infra_id}}'"
+    },
+    "operationalPointProjection": {
+      "InvalidNumberOfDistances": "Ожидалось {{expected}} расстояний, но получено {{found}}",
+      "InvalidNumberOfRefs": "Ожидается как минимум две ссылки на операционные точки"
+    },
+    "paced_train": {
+      "BatchNotFound": "Не найдено '{{count}}' расписаний поездов",
+      "Database": "Внутренняя ошибка (база данных)",
+      "ExceptionNotFound": "Исключение '{{exception_key}}' не найдено",
+      "InfraNotFound": "Инфраструктура '{{infra_id}}' не найдена",
+      "NotFound": "Расписание поезда '{{train_schedule_id}}' не найдено",
+      "OperationalPointNotFound": "Операционная точка '{{reference}}' не найдена",
+      "PathfindingFailed": "Поиск пути не удался для расписания поезда '{{train_schedule_id}}'",
+      "RollingStockNotFound": "Подвижной состав '{{rolling_stock_name}}' не найден",
+      "SimulationFailed": "Симуляция не удалась для расписания поезда '{{train_schedule_id}}'",
+      "TrainScheduleSetNotFound": "Набор расписаний поездов '{{train_schedule_set_id}}' не найден"
+    },
+    "pathfinding": {
+      "Database": "Внутренняя ошибка (база данных)",
+      "ElectricalProfilesOverlap": "Электрический профиль пересекается с другими",
+      "ElectrificationOverlap": "Электрификация '{{electrification_id}}' пересекается с другими электрификациями",
+      "InfraNotFound": "Инфраструктура '{{infra_id}}' не существует",
+      "NotFound": "Поиск пути {{pathfinding_id}} не существует",
+      "OperationalPointsNotFound": "Операционные точки не существуют: {{operational_points}}",
+      "RollingStockNotFound": "Подвижной состав с идентификатором '{{rolling_stock_id}}' не существует",
+      "TrackSectionsNotFound": "Участки пути не существуют: {{track_sections}}"
+    },
+    "postgres": {
+      "Host": "Неверный хост '{{hostname}}'",
+      "Password": "Неверный пароль",
+      "Port": "Неверный порт '{{port}}'",
+      "Username": "Неверное имя пользователя"
+    },
+    "project": {
+      "Database": "Внутренняя ошибка",
+      "ImageError": "Предоставленное изображение недействительно",
+      "ImageNotFound": "Документ изображения '{{document_key}}' не найден",
+      "NotFound": "Проект '{{project_id}}' не найден"
+    },
+    "railjson": {
+      "UnsupportedVersion": "Неподдерживаемая версия railjson"
+    },
+    "rollingstocks": {
+      "BasePowerClassEmpty": "Базовый класс мощности - пустая строка",
+      "CannotCreateCompoundImage": "Невозможно скопировать отдельное изображение в составное изображение",
+      "CannotReadImage": "Невозможно прочитать отдельное изображение",
+      "Database": "Внутренняя ошибка (база данных)",
+      "IsLocked": "Подвижной состав '{{rolling_stock_id}}' заблокирован",
+      "IsUsed": "Подвижной состав '{{rolling_stock_id}}' используется",
+      "KeyNotFound": "Подвижной состав '{{rolling_stock_key.key}}' не найден",
+      "LiveryMultipartError": "Неверный многочастный запрос при загрузке ливреи",
+      "NameAlreadyUsed": "Имя '{{name}}' уже используется"
+    },
+    "round_trips": {
+      "Database": "Внутренняя ошибка (база данных)",
+      "DuplicateTrainIds": "Полезная нагрузка содержит дублирующиеся идентификаторы поездов, что не допускается",
+      "TimetableNotFound": "Расписание '{{timetable_id}}' не найдено"
+    },
+    "scenario": {
+      "Database": "Внутренняя ошибка (база данных)",
+      "InfraNotFound": "Инфраструктура '{{infra_id}}' не найдена",
+      "NotFound": "Сценарий не найден",
+      "StudyNotFound": "Исследование '{{study_id}}' не найдено",
+      "TimetableNotFound": "Расписание '{{timetable_id}}' не найдено"
+    },
+    "search": {
+      "ArgMissing": "Отсутствует ожидаемый аргумент типа {{expected}} в позиции {{arg_pos}}",
+      "ArgTypeMismatch": "Ожидался аргумент типа {{expected}} в позиции {{arg_pos}}, но получен {{actual}}",
+      "EmptyArray": "Пустые массивы являются недопустимым синтаксисом",
+      "IntegerConversion": "Не удалось преобразовать в i64",
+      "InvalidColumnName": "Неверное имя столбца",
+      "InvalidFunctionIdentifier": "Идентификатор функции должен быть строкой",
+      "InvalidSyntax": "Неверный синтаксис",
+      "ObjectType": "Неверный тип объекта",
+      "QueryAst": "Ожидается логический тип запроса",
+      "RuntimeTypeCheckFail": "Ожидался тип {{expected}}, получено значение '{{value}}' типа {{actual}}",
+      "SearchEngineError": "Внутренняя ошибка поисковой системы",
+      "UndefinedFunction": "Неопределенная функция",
+      "UndefinedOverload": "Нет подходящей перегрузки",
+      "UnexpectedArg": "Найден неожиданный тип аргумента",
+      "UnexpectedColumn": "Неожиданный столбец",
+      "UnexpectedErsatz": "Ожидалось значение типа {{expected}}, но получен эрзац '{{value}}'",
+      "VariadicArgTypeMismatch": "Ожидался вариативный аргумент типа {{expected}}, но получен {{actual}}"
+    },
+    "single_simulation": {
+      "ElectricalProfileSetNotFound": "Набор электрических профилей '{{electrical_profile_set_id}}' не найден",
+      "PathNotFound": "Путь '{{path_id}}' не найден",
+      "RollingStockNotFound": "Подвижной состав '{{rolling_stock_id}}' не найден",
+      "WrongCoreResponseFormat": "Получен неверный формат ответа от ядра"
+    },
+    "sprites": {
+      "FileNotFound": "Файл не найден",
+      "UnknownSignalingSystem": "Неизвестная система сигнализации"
+    },
+    "stdcm": {
+      "Database": "Внутренняя ошибка (база данных)",
+      "InfraNotFound": "Инфраструктура '{{infra_id}}' не существует",
+      "InvalidConsistLength": "Неверная длина состава {{provided_consist_length}}: она должна быть больше '{{expected_min}}'",
+      "InvalidConsistMass": "Неверная масса состава {{provided_consist_mass}}: она должна быть больше '{{expected_min}}'",
+      "InvalidPathItems": "Неверные путевые точки {{items}}",
+      "RollingStockNotFound": "Подвижной состав '{{rolling_stock_id}}' не существует",
+      "TimetableNotFound": "Расписание '{{timetable_id}}' не существует",
+      "TowedRollingStockNotFound": "Буксируемый подвижной состав {towed_rolling_stock_id} не существует",
+      "TrainSimulationFail": "Симуляция поезда не удалась"
+    },
+    "stdcm_search_env": {
+      "Database": "Внутренняя ошибка (база данных)",
+      "NotFound": "Среда поиска stdcm '{{env_id}}' не найдена"
+    },
+    "study": {
+      "Database": "Внутренняя ошибка (база данных)",
+      "NotFound": "Исследование '{{study_id}}' не найдено",
+      "ProjectNotFound": "Проект '{{project_id}}' не найден",
+      "StartDateAfterEndDate": "Дата начала исследования должна быть раньше даты окончания"
+    },
+    "sub_categories": {
+      "CodeAlreadyUsed": "Код подкатегории '{{code}}' уже используется",
+      "Database": "Внутренняя ошибка (база данных)",
+      "NotFound": "Подкатегория '{{code}}' не найдена"
+    },
+    "temporary_speed_limit": {
+      "Database": "Внутренняя ошибка (база данных)",
+      "NameAlreadyUsed": "Группа временных ограничений скорости с именем '{{name}}' уже существует"
+    },
+    "timetable": {
+      "BatchTrainScheduleSetNotFound": "Не найдено '{{count}}' наборов расписаний поездов",
+      "Database": "Внутренняя ошибка (база данных)",
+      "InfraNotFound": "Инфраструктура '{{infra_id}}' не существует",
+      "InfraNotLoaded": "Инфраструктура '{{infra_id}}' не загружена",
+      "NotFound": "Расписание '{{timetable_id}}' не найдено",
+      "ParseError": "Не удалось разобрать train_id: '{{train_id}}'",
+      "TrainScheduleSetsNotFound": "Наборы расписаний поездов '{{ids}}' не найдены",
+      "similar_trains": {
+        "Database": "Внутренняя ошибка (база данных)",
+        "EmptyTrainsTraffic": "Данные о движении поездов пусты",
+        "InvalidPath": "Неверный путь в расписании",
+        "RollingStockNotFound": "Подвижной состав '{{rolling_stock_name}}' не существует",
+        "SpeedLimitNotFound": "Тег ограничения скорости '{{speed_limit_tag}}' не существует"
+      }
+    },
+    "towedrollingstocks": {
+      "Database": "Внутренняя ошибка",
+      "IdNotFound": "Буксируемый подвижной состав '{{towed_rolling_stock_id}}' не найден",
+      "IsLocked": "Буксируемый подвижной состав '{{towed_rolling_stock_id}}' заблокирован"
+    },
+    "train_schedule_exception": {
+      "BatchNotFound": "Не найдено '{{count}}' исключений из расписания поездов",
+      "Database": "Внутренняя ошибка (база данных)",
+      "NotFound": "Исключение из расписания поезда '{{exception_id}}' не найдено",
+      "NotPacedTrain": "Расписание поезда '{{train_schedule_id}}' не является поездом с заданным темпом",
+      "TimetableNotFound": "Расписание '{{timetable_id}}' не найдено",
+      "TrainScheduleNotFound": "Расписание поезда '{{train_schedule_id}}' не найдено"
+    },
+    "train_schedule_set": {
+      "CatalogEntryNotFound": "Запись каталога '{{catalog_entry_id}}' не найдена",
+      "Database": "Внутренняя ошибка (база данных)",
+      "NotFound": "Набор расписаний поездов '{{train_schedule_set_id}}' не найден"
+    },
+    "url": {
+      "InvalidUrl": "Неверный URL '{{url}}'"
+    },
+    "valkey": {
+      "Url": "Неверный URL '{{url}}'"
+    },
+    "work_schedule": {
+      "Database": "Внутренняя ошибка (база данных)",
+      "NameAlreadyUsed": "Группа рабочих расписаний с именем '{{name}}' уже существует",
+      "WorkScheduleGroupNotFound": "Нет такой группы рабочих расписаний с идентификатором '{{id}}'"
+    },
+    "worker_load": {
+      "Database": "Внутренняя ошибка (база данных)",
+      "FetchStatusError": "Внутренняя ошибка (osrdyne)",
+      "InfraNotFound": "Инфраструктура '{{infra_id}}' не найдена",
+      "TimetableNotFound": "Расписание '{{timetable_id}}' не найдено"
+    }
+  },
+  "pageNotFound": "Страница, которую вы ищете, не существует."
+}

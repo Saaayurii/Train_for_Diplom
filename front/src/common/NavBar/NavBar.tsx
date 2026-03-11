@@ -30,7 +30,7 @@ const NavBar = ({ appName }: NavBarProps) => {
     if (!deploymentSettings)
       return {
         logoUrl: undefined,
-        name: 'Osrd',
+        name: 'Железная дорога',
       };
     return {
       logoUrl: deploymentSettings.operationalStudiesLogoWithName,

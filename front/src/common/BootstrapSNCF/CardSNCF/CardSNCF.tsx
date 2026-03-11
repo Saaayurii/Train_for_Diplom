@@ -5,11 +5,19 @@ type CardProps = {
   link: string;
   img: string;
   title: string;
+  description?: string;
   disabledLink?: boolean;
   openInNewTab?: boolean;
 };
 
-const CardSNCF = ({ link, img, title, disabledLink = false, openInNewTab = false }: CardProps) => (
+const CardSNCF = ({
+  link,
+  img,
+  title,
+  description,
+  disabledLink = false,
+  openInNewTab = false,
+}: CardProps) => (
   <Link
     to={link}
     {...(openInNewTab
@@ -24,6 +32,7 @@ const CardSNCF = ({ link, img, title, disabledLink = false, openInNewTab = false
       <h5 data-testid="page-title" className="card-title mb-0 text-base font-weight-normal">
         {title}
       </h5>
+      {description && <p className="card-text">{description}</p>}
     </div>
   </Link>
 );

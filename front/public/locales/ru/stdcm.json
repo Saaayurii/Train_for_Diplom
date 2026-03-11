@@ -1,0 +1,304 @@
+{
+  "allowances": {
+    "gridMarginBeforeAfter": "Запас в расписании до/после",
+    "standardAllowance": "Запас на восстановление"
+  },
+  "arriveAt": "Прибытие в {{ time }}",
+  "consist": {
+    "compositionCode": "Код состава",
+    "consist": "Состав",
+    "errors": {
+      "maxSpeed": {
+        "negative": "Должно быть положительным.",
+        "range": "Максимальная скорость должна быть между {{low}} и {{high}} км/ч"
+      },
+      "missingValue": "Отсутствует значение",
+      "totalLength": {
+        "negative": "Должно быть положительным.",
+        "range": "Общая длина должна быть между {{low}} и {{high}} м"
+      },
+      "totalMass": {
+        "negative": "Должно быть положительным.",
+        "range": "Общий вес должен быть между {{low}} и {{high}} т"
+      }
+    },
+    "info": {
+      "maxSpeed": "Максимальная скорость была обновлена в соответствии с новыми данными о составе.",
+      "totalLength": "Длина была обновлена в соответствии с новыми данными о составе.",
+      "totalMass": "Вес был обновлен в соответствии с новыми данными о составе."
+    },
+    "length": "Длина",
+    "loadingGauge": "Габарит погрузки",
+    "maxSpeed": "Макс. скорость",
+    "tonnage": "Тоннаж",
+    "towedRollingStock": "Буксируемый подвижной состав",
+    "tractionEngine": "Тяговый двигатель"
+  },
+  "debug": {
+    "simulationSettings": "Настройки симуляции"
+  },
+  "departureTime": "Время отправления",
+  "destinationTime": "Время назначения",
+  "find": "Найти",
+  "form": {
+    "datePickerErrors": {
+      "invalidDate": "Выберите дату между {{startDate}} и {{endDate}}",
+      "invalidInput": "Дата должна быть в формате дд/мм/гг"
+    },
+    "incompleteForm": "Незавершенная форма",
+    "viaNotDefined": "По крайней мере, одно местоположение не указано"
+  },
+  "infrastructure": "Инфра",
+  "leaveAt": "Отправление в {{ time }}",
+  "linkedTrainDefaultCard": {
+    "anterior": "Укажите предыдущий поезд",
+    "posterior": "Укажите последующий поезд"
+  },
+  "mailFeedback": {
+    "body": "Мы приглашаем вас отправить нам сообщение.
+Как только у вас возникнет проблема или замечание,
+даже если оно не идеально сформулировано.
+
+Заранее спасибо,
+Команда проекта {{stdcmName}}
+
+(вы можете удалить это сообщение)",
+    "description": "Помогите нам улучшить {{stdcmName}}, отправив нам свои отзывы и предложения.",
+    "simulationDetails": "Детали симуляции",
+    "subject": "{{stdcmName}} - отзывы, предложения",
+    "title": "Есть отзывы или предложения?",
+    "writeButton": "Написать"
+  },
+  "noConfigurationFound": {
+    "text": "Пожалуйста, свяжитесь с командой технического обслуживания, чтобы они могли вернуть вас в строй.",
+    "title": "Проблема с конфигурацией мешает вам выполнить поиск"
+  },
+  "noCorrespondingResults": "Нет результатов, соответствующих вашему поиску.",
+  "pathfindingStatus": {
+    "calculating": "Проверка пути…",
+    "success": "Запрошенный путь действителен."
+  },
+  "reportSheet": {
+    "applicationDate": "Дата подачи заявки",
+    "asap": "как можно скорее",
+    "code": "CH",
+    "consist": "состав",
+    "conventionalSign": "условн. знак",
+    "crossedATE": "пересеченный ATE",
+    "endStop": "конец",
+    "for": "для",
+    "formattedDate": "{{date}} в {{time}}",
+    "formattedDateScenario": "Лист симуляции создан {{date}} в {{time}}",
+    "from": "от",
+    "length": "длина",
+    "loadingGauge": "габарит погрузки",
+    "maxLength": "макс. длина",
+    "maxSpeed": "макс. скорость",
+    "maxWeight": "макс. вес",
+    "notFound": "Не найдено",
+    "operationalPoint": "ОП",
+    "passageStop": "проезд",
+    "refEngine": "Реф. двиг.",
+    "referenceEngine": "эталонный двигатель",
+    "requestedRoute": "запрошенный маршрут",
+    "scheduledArrival": "плановое прибытие {{date}} в {{time}}",
+    "scheduledDeparture": "плановое отправление {{date}} в {{time}}",
+    "serviceStop": "Служебная остановка",
+    "similarTrainsToDuplicate": "похожие поезда для дублирования",
+    "simulation": "Симуляция",
+    "simulationStopType": "тип остановки",
+    "speedLimitByTag": "ограничение скорости по тегу",
+    "startStop": "начало",
+    "stdcm": "LMR",
+    "stdcmCreation": "создание краткосрочного пути",
+    "stopTime": "время остановки",
+    "stopType": "мотив",
+    "towedMaterial": "буксируемый материал",
+    "track": "путь",
+    "unknown": "Неизвестно",
+    "viewSimulation": "посмотреть симуляцию на карте",
+    "warningMessage": "Этот лист был сгенерирован инструментом симуляции. Это не освобождает планировщика от проверок, присущих макету STDCM.",
+    "weight": "вес",
+    "withoutWarranty": "Симуляция пути без гарантированной доступности"
+  },
+  "scenario": "Сценарий",
+  "scenarioExplorer": {
+    "infraLegend": "инфра",
+    "noScenarioSelected": "Нажмите здесь, чтобы выбрать сценарий с использованием инфраструктуры и выделенного расписания.",
+    "projectLegend": "проект",
+    "projects": "Проекты",
+    "scenarioExplorator": "Обозреватель сценариев",
+    "scenarioLegend": "сценарий",
+    "scenarios": "Сценарии",
+    "studies": "Исследования",
+    "studyLegend": "исследование"
+  },
+  "simulation": {
+    "additionalResults": "Для вашего запроса не найдено результатов; вычисляются альтернативные варианты.",
+    "calculatingSimulation": "Вычисление в процессе…",
+    "getSimulation": "Получить симуляцию",
+    "infoMessage": "Эта симуляция не гарантирует доступность пути.",
+    "results": {
+      "changeSearchCriteria": "Вы можете изменить критерии поиска, чтобы найти решение.",
+      "displayAll": "Отобразить все операционные точки",
+      "displayMain": "Отобразить основные операционные точки",
+      "downloadSimulationSheet": "Скачать отчет о симуляции",
+      "modal": {
+        "LongFRET": "Грузовой длинный путь (минимум 3 региона, 4 в IDF)",
+        "addComment": "Замечания",
+        "additionalInformation": "Дополнительная информация",
+        "arrivalPoint": "Прибытие в {{arrivalAt}}",
+        "arrivalTime": "Прибытие сохраненной симуляции",
+        "arrivalTiming": "Ограничение по времени прибытия",
+        "cancel": "Отмена",
+        "close": "Закрыть",
+        "comment": "Замечания",
+        "compositionCode": "код состава",
+        "convoy": "КОНВОЙ",
+        "createRailManagerRequest": "Создать запрос GESICO",
+        "csCode": "Код CS",
+        "date": "Дата",
+        "departurePoint": "Отправление {{departureAt}}",
+        "departureTime": "Отправление сохраненной симуляции",
+        "departureTiming": "Ограничение по времени отправления",
+        "errorMissingConsist": "Отсутствуют необходимые данные о составе",
+        "errorRailwayManager": "Ошибка при отправке запроса в GESICO",
+        "followUpMessage": "Вы сможете увидеть этот запрос в GESICO.",
+        "for": "Для",
+        "from": "От",
+        "gauge": "колея",
+        "hazardousMaterials": "Опасные материалы",
+        "maxSpeed": "макс. скорость",
+        "newRailManagerRequest": "Новый запрос в GESICO",
+        "noCategory": "Нет категории",
+        "other": "Другие пути",
+        "pathType": "Тип пути",
+        "pdf": "PDF",
+        "referenceEngine": "эталонный двигатель",
+        "requestedRoute": "ЗАПРОШЕННЫЙ МАРШРУТ",
+        "retainedSimulation": "СОХРАНЕННАЯ СИМУЛЯЦИЯ",
+        "rollingStock": "буксируемый подвижной состав",
+        "selectPathType": "Выбрать",
+        "stop": "Остановка {{minutes}} в {{stopAt}}",
+        "successMessage": "Запрос <requestNumber/> получен GESICO",
+        "toleranceAfter": "Будущий допуск",
+        "toleranceBefore": "Прошлый допуск",
+        "totalLength": "общая длина",
+        "totalTonnage": "общий тоннаж",
+        "trainCategory": "Категория поезда",
+        "trainToBeSubstituted": "Поезд для замены",
+        "verifyParameters": "Вот параметры запроса и симуляции, которые будут отправлены в GESICO. Пожалуйста, найдите время, чтобы их проверить.",
+        "warnings": {
+          "hazardousMaterialsBold": "Ограничения для опасных материалов не учитываются алгоритмом LMR.",
+          "hazardousMaterialsNormal": "Это будет проверено планировщиком расписания, и симуляция может быть отклонена."
+        }
+      },
+      "notFound": "Для этой конфигурации не найдено ни одного пути",
+      "pathNotFound": "Конфликт с существующим поездом и/или рабочим расписанием.",
+      "retainThisSimulation": "Сохранить эту симуляцию",
+      "simulationDownstream": "Симуляция рассчитана автоматически, так как для запрошенных критериев не найдено свободных мощностей: допуск <underline>до</underline> времени отправления был увеличен.",
+      "simulationName": {
+        "withOutputs": "Симуляция №{{id}}",
+        "withoutOutputs": "Нет свободных мощностей"
+      },
+      "simulationSelected": "Вы выбрали эту симуляцию",
+      "simulationUpstream": "Симуляция рассчитана автоматически, так как для запрошенных критериев не найдено свободных мощностей: допуск <underline>после</underline> времени отправления был увеличен.",
+      "simulationsWithConflicts": "Две другие симуляции были автоматически рассчитаны на основе этой конфигурации.",
+      "startNewQuery": "Начать новый запрос",
+      "startNewQueryFromCurrent": "Начать новый запрос на основе текущего",
+      "status": {
+        "completed": "Расчет завершен",
+        "errorMessage": "К сожалению, мы не смогли обработать ваш запрос. Команда LMR была уведомлена и как можно скорее разберется в ситуации.",
+        "failed": "Произошла техническая проблема"
+      },
+      "transferSheetToRailManager": "Отправить в GESICO",
+      "upgrade": {
+        "arrivalIncompatible": "Несовместимое время прибытия",
+        "helpUs": "Помогите нам улучшить {{stdcmName}}",
+        "other": "Другое",
+        "reason": "Эта симуляция не соответствует вашим потребностям, потому что…",
+        "startIncompatible": "Несовместимое время отправления",
+        "unqualifiedDriver": "Неквалифицированный водитель"
+      }
+    },
+    "stopCalculation": "Остановить"
+  },
+  "simulationSheet": "Лист симуляции",
+  "spaceTimeGraphic": "Пространственно-временной график",
+  "stdcmErrors": {
+    "incompatibleConstraintsDetails": {
+      "incompatibleElectrical_one": "- {{count}} ошибка электрификации",
+      "incompatibleElectrical_other": "- {{count}} ошибок электрификации",
+      "incompatibleLoadingGauge_one": "- {{count}} несовместимость габаритов погрузки",
+      "incompatibleLoadingGauge_other": "- {{count}} несовместимостей габаритов погрузки",
+      "incompatibleSignalingSystem_one": "- {{count}} ошибка системы сигнализации",
+      "incompatibleSignalingSystem_other": "- {{count}} ошибок системы сигнализации"
+    },
+    "incompatibleConstraints_one": "Запрошенный путь содержит следующую ошибку:",
+    "incompatibleConstraints_other": "Запрошенный путь содержит следующие ошибки:",
+    "incompatibleConstraints_zero": "Ошибка ограничения на запрошенном пути",
+    "infraNotLoaded": "Инфраструктура загружается",
+    "invalidFields": {
+      "maxSpeed": "максимальная скорость состава",
+      "totalLength": "общая длина состава",
+      "totalMass": "общая масса состава"
+    },
+    "invalidInformations": "Неверная информация для расчета:",
+    "missingFields": {
+      "destination": "пункт назначения",
+      "maxSpeed": "максимальная скорость состава",
+      "origin": "пункт отправления",
+      "timeDestination": "время прибытия в пункт назначения",
+      "timeOrigin": "время отправления из пункта отправления",
+      "totalLength": "общая длина состава",
+      "totalMass": "общая масса состава",
+      "tractionEngine": "тяговый двигатель",
+      "vias": "По крайней мере один промежуточный ОП"
+    },
+    "missingInformations": "Отсутствует информация для расчета:",
+    "noPaths": "Несовместимость с другими путями поездов.",
+    "noResults": "Путь не найден",
+    "pathfindingFailed": "Для этих путевых точек не найдено ни одного пути.",
+    "requestFailed": "Ошибка расчета для пути поезда в последнюю минуту",
+    "routeErrors": {
+      "bothPointAreScheduled": "Расчет не может учитывать одновременно расписание отправления и назначения. Вы должны выбрать одно или другое:",
+      "global": "Пожалуйста, проверьте ошибки, связанные со следующим маршрутом:",
+      "noScheduledPoint": "Для расчета требуется либо расписание отправления, либо назначения.",
+      "viaStopDurationConsistChangeTooShort": "Изменение состава должно занимать не менее 30 минут.",
+      "viaStopDurationDriverSwitchTooShort": "Время остановки для смены машиниста обычно составляет не менее 3 минут.",
+      "viaStopDurationMissing": "Пожалуйста, укажите продолжительность остановки для промежуточного ОП.",
+      "zeroLengthPath": "Пункт отправления и назначения не могут совпадать."
+    }
+  },
+  "trainPath": {
+    "addVia": "Добавить промежуточный ОП",
+    "asSoonAsPossible": "как можно скорее",
+    "ch": "CH",
+    "ci": "CI",
+    "consistChange": {
+      "add": "Редактировать состав"
+    },
+    "date": "Дата",
+    "destination": "Пункт назначения",
+    "linkedTrain": {
+      "anterior": "Предыдущий поезд",
+      "error": "Ошибка связанных поездов",
+      "noTrainScheduleSetFound": "Для расписания не найдено наборов расписаний поездов",
+      "posterior": "Последующий поезд"
+    },
+    "origin": "Пункт отправления",
+    "preciseTime": "точное время",
+    "respectDestinationSchedule": "соблюдать расписание назначения",
+    "stopFor": "Минимальное время остановки",
+    "stopType": {
+      "driverSwitch": "смена машиниста",
+      "overtake": "обгон",
+      "passageTime": "время прохождения",
+      "serviceStop": "служебная остановка"
+    },
+    "time": "Время",
+    "tolerance": "Допуск",
+    "type": "Тип",
+    "vias": "Промежуточный ОП"
+  }
+}

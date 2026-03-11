@@ -1,8 +1,8 @@
 <p align="center">
-  <a href="https://osrd.fr/en/">
+  <a href="https://osrd.fr/ru/">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="/assets/branding/osrd_small_dark.svg">
-      <img width="340px" style="max-width: 100%;" src="/assets/branding/osrd_small.svg" alt="OSRD Logo" alt="OSRD logo">
+      <img width="340px" style="max-width: 100%;" src="/assets/branding/osrd_small.svg" alt="Логотип OSRD">
     </picture>
   </a>
 &nbsp;&nbsp;
@@ -12,81 +12,81 @@
 </p>
 
 <p align="center">
-  <a href="https://osrd.fr/en/docs/guides/contribute/"><img src="https://img.shields.io/github/contributors-anon/OpenRailAssociation/osrd" alt="Contributors badge" /></a>
-  <a href="https://github.com/OpenRailAssociation/osrd/blob/dev/LICENSE"><img src="https://img.shields.io/badge/license-LGPL-blue.svg" alt="LGPL License badge" /></a>
-  <a href="https://github.com/OpenRailAssociation/osrd/actions/workflows/build.yml"><img src="https://github.com/OpenRailAssociation/osrd/actions/workflows/build.yml/badge.svg" alt="Build Status" /></a>
-  <a href="https://api.reuse.software/info/github.com/OpenRailAssociation/osrd"><img src="https://api.reuse.software/badge/github.com/OpenRailAssociation/osrd" alt="REUSE status" /></a>
-  <a href="https://github.com/OpenRailAssociation/technical-committee/blob/main/incubation-process.md"><img src="https://openrailassociation.org/badges/openrail-project-stage-2.svg" alt="Openrail Incubation Stage" /></a>
+  <a href="https://osrd.fr/ru/docs/guides/contribute/"><img src="https://img.shields.io/github/contributors-anon/OpenRailAssociation/osrd" alt="Значок участников" /></a>
+  <a href="https://github.com/OpenRailAssociation/osrd/blob/dev/LICENSE"><img src="https://img.shields.io/badge/license-LGPL-blue.svg" alt="Значок лицензии LGPL" /></a>
+  <a href="https://github.com/OpenRailAssociation/osrd/actions/workflows/build.yml"><img src="https://github.com/OpenRailAssociation/osrd/actions/workflows/build.yml/badge.svg" alt="Статус сборки" /></a>
+  <a href="https://api.reuse.software/info/github.com/OpenRailAssociation/osrd"><img src="https://api.reuse.software/badge/github.com/OpenRailAssociation/osrd" alt="Статус REUSE" /></a>
+  <a href="https://github.com/OpenRailAssociation/technical-committee/blob/main/incubation-process.md"><img src="https://openrailassociation.org/badges/openrail-project-stage-2.svg" alt="Стадия инкубации Openrail" /></a>
 </p>
 
-## What is OSRD?
+## Что такое OSRD?
 
-OSRD (Open Source Railway Designer) is an open source web application for railway infrastructure design,
-capacity analysis, timetabling and simulation and short term path request.
+OSRD (Open Source Railway Designer) — это веб-приложение с открытым исходным кодом для проектирования железнодорожной инфраструктуры,
+анализа пропускной способности, составления расписаний, симуляции и запросов на краткосрочные маршруты.
 
-It's free and open-source forever!
+Это бесплатное программное обеспечение с открытым исходным кодом навсегда!
 
-Learn more about the project on [osrd.fr](https://osrd.fr/en/).
+Узнайте больше о проекте на [osrd.fr](https://osrd.fr/ru/).
 
-## Demo
+## Демо
 
-Access the demo at [demo.osrd.fr](https://demo.osrd.fr).
+Доступ к демонстрационной версии: [demo.osrd.fr](https://demo.osrd.fr).
 
 > [!IMPORTANT]
-> This environment is not intended for use in production. It is refreshed daily, and the data entered is accessible to everyone.
+> Эта среда не предназначена для использования в производственных целях. Она обновляется ежедневно, и введенные данные доступны всем.
 
-## ⚠️ Development status
+## ⚠️ Статус разработки
 
-OSRD is still in active development.
-User and programming interfaces are not entirely stable and are still occasionally modified.
-If you rely on OSRD, be prepared to deal with regular changes.
+OSRD все еще находится в активной разработке.
+Пользовательские и программные интерфейсы не являются полностью стабильными и время от времени изменяются.
+Если вы полагаетесь на OSRD, будьте готовы к регулярным изменениям.
 
-## Languages
+## Языки
 
-OSRD support multiple languages. Here is the translation status for the different languages.
-Integrated means that users can actually activate the language in the application.
-If you want to contribute to the translation, you can do so easily with [Weblate](https://hosted.weblate.org/engage/osrd/).
+OSRD поддерживает несколько языков. Ниже представлен статус перевода для разных языков.
+Интегрировано означает, что пользователи могут активировать язык в приложении.
+Если вы хотите внести свой вклад в перевод, вы можете легко это сделать с помощью [Weblate](https://hosted.weblate.org/engage/osrd/).
 
-| **Language**  |                                                          **Status**                                                         | **Integrated** |
-|---------------|:---------------------------------------------------------------------------------------------------------------------------:|:--------------:|
-| 🇬🇧 English       | [![Translation status](https://hosted.weblate.org/widget/osrd/-/en/svg-badge.svg)](https://hosted.weblate.org/engage/osrd/) |        ✅      |
-| 🇫🇷 French        | [![Translation status](https://hosted.weblate.org/widget/osrd/-/fr/svg-badge.svg)](https://hosted.weblate.org/engage/osrd/) |        ✅      |
-| 🇩🇪 German        | [![Translation status](https://hosted.weblate.org/widget/osrd/-/de/svg-badge.svg)](https://hosted.weblate.org/engage/osrd/) |        ✅      |
-| 🇵🇹 Portuguese    | [![Translation status](https://hosted.weblate.org/widget/osrd/-/pt/svg-badge.svg)](https://hosted.weblate.org/engage/osrd/) |        ✅      |
-| 🇪🇸 Spanish       | [![Translation status](https://hosted.weblate.org/widget/osrd/-/es/svg-badge.svg)](https://hosted.weblate.org/engage/osrd/) |        ❌      |
+| **Язык**      |                                                          **Статус**                                                         | **Интегрировано** |
+|---------------|:---------------------------------------------------------------------------------------------------------------------------:|:-----------------:|
+| 🇬🇧 Английский | [![Статус перевода](https://hosted.weblate.org/widget/osrd/-/en/svg-badge.svg)](https://hosted.weblate.org/engage/osrd/)     |        ✅         |
+| 🇫🇷 Французский| [![Статус перевода](https://hosted.weblate.org/widget/osrd/-/fr/svg-badge.svg)](https://hosted.weblate.org/engage/osrd/)     |        ✅         |
+| 🇩🇪 Немецкий   | [![Статус перевода](https://hosted.weblate.org/widget/osrd/-/de/svg-badge.svg)](https://hosted.weblate.org/engage/osrd/)     |        ✅         |
+| 🇵🇹 Португальский| [![Статус перевода](https://hosted.weblate.org/widget/osrd/-/pt/svg-badge.svg)](https://hosted.weblate.org/engage/osrd/)     |        ✅         |
+| 🇪🇸 Испанский  | [![Статус перевода](https://hosted.weblate.org/widget/osrd/-/es/svg-badge.svg)](https://hosted.weblate.org/engage/osrd/)     |        ❌         |
 
-## Getting Started
+## Начало работы
 
-To compile and run the application with an example infrastructure:
+Чтобы скомпилировать и запустить приложение с примером инфраструктуры:
 
 ```sh
-# build and run the entire stack
+# собрать и запустить весь стек
 docker compose up -d --build
 
-# import an small example infrastructure ("small_infra")
+# импортировать небольшой пример инфраструктуры ("small_infra")
 ./scripts/load-railjson-infra.sh small_infra tests/data/infras/small_infra/infra.json
 
-# import rolling stocks with realistic characterics, representative of the industry
+# импортировать подвижной состав с реалистичными характеристиками, представляющими отрасль
 ./scripts/load-railjson-rolling-stock.sh tests/data/rolling_stocks/realistic/*.json --force
 
-# import more rolling stocks
+# импортировать больше подвижного состава
 ./scripts/load-railjson-rolling-stock.sh tests/data/rolling_stocks/*.json
 
-# open the web app
+# открыть веб-приложение
 xdg-open http://localhost:4000/
 ```
 
-Linux or WSL users can use `./osrd-compose host` instead of `docker compose` to enable host networking: it can be useful to launch services in a debugger.
+Пользователи Linux или WSL могут использовать `./osrd-compose host` вместо `docker compose` для включения сетевого режима хоста: это может быть полезно для запуска служб в отладчике.
 
-macOS users on Apple Silicon should make sure to set an arm64 image name for Postgres/PostGIS (to prevent slow amd64 emulation). This image name can be set by running `export OSRD_POSTGIS_IMAGE='nickblah/postgis:16-postgis-3'` before the first `docker compose` command.
+Пользователи macOS на Apple Silicon должны убедиться, что установили имя образа arm64 для Postgres/PostGIS (чтобы предотвратить медленную эмуляцию amd64). Это имя образа можно установить, выполнив `export OSRD_POSTGIS_IMAGE='nickblah/postgis:16-postgis-3'` перед первой командой `docker compose`.
 
-The last-minute train (STDCM) module needs additional setup: start by creating a scenario, copy its ID from its URL, then run:
+Модуль поезда в последнюю минуту (STDCM) требует дополнительной настройки: начните с создания сценария, скопируйте его ID из URL-адреса, затем выполните:
 
 ```sh
 docker compose exec editoast editoast stdcm-search-env set-from-scenario <id>
 ```
 
-If you need to use speed limits tags and loading gauge, run this:
+Если вам нужно использовать теги ограничений скорости и габариты погрузки, выполните это:
 
 ```sh
 echo '{ "LG1": [], "LG2": [] }' > /tmp/allowed_tracks.json
@@ -94,9 +94,9 @@ docker cp /tmp/allowed_tracks.json osrd-editoast:/tmp/
 docker compose exec editoast editoast stdcm-search-env set-from-scenario <id> --speed-limit-tags "CC100|100" "CC90|90" "CC200|200" --default-speed-limit-tag "CC100" /tmp/allowed_tracks.json
 ```
 
-## Working on a single component
+## Работа над одним компонентом
 
-Each component has a _justfile_ to run usual development tasks. Install [just](https://github.com/casey/just#installation) and run it to see available recipes. All the components include:
+Каждый компонент имеет _justfile_ для выполнения обычных задач разработки. Установите [just](https://github.com/casey/just#installation) и запустите его, чтобы увидеть доступные рецепты. Все компоненты включают:
 
 * run
 * install
@@ -105,24 +105,24 @@ Each component has a _justfile_ to run usual development tasks. Install [just](h
 * lint
 * fix-lint
 
-## Deployment
+## Развертывание
 
-To deploy the application on a server, check out the [deployment guide](https://osrd.fr/en/docs/guides/deploy/).
+Для развертывания приложения на сервере ознакомьтесь с [руководством по развертыванию](https://osrd.fr/ru/docs/guides/deploy/).
 
-## Get in touch
+## Свяжитесь с нами
 
-Send an email at <contact@osrd.fr>, [open an issue](https://github.com/OpenRailAssociation/osrd/issues/new?labels=kind%3Aquestion&template=question.yaml), or join the [#public-general:osrd.fr](https://matrix.to/#/#public-general:osrd.fr) matrix channel.
+Отправьте электронное письмо по адресу <contact@osrd.fr>, [создайте issue](https://github.com/OpenRailAssociation/osrd/issues/new?labels=kind%3Aquestion&template=question.yaml) или присоединяйтесь к каналу matrix [#public-general:osrd.fr](https://matrix.to/#/#public-general:osrd.fr).
 
-## Sponsors
+## Спонсоры
 
 <p align="center">
-  <img src="assets/sponsors/ministere-amenagement-territoire-decentralisation.png" width="150px" height="150px" alt="Ministère de l'Aménagement du Territoire et de la Décentralisation"/>
-  <img src="assets/sponsors/european-union.svg" width="150px" height="150px" alt="European Union"/>
+  <img src="assets/sponsors/ministere-amenagement-territoire-decentralisation.png" width="150px" height="150px" alt="Министерство территориального планирования и децентрализации"/>
+  <img src="assets/sponsors/european-union.svg" width="150px" height="150px" alt="Европейский Союз"/>
   <img src="assets/sponsors/sncf-reseau.svg" width="150px" height="150px" alt="SNCF Réseau"/>
 </p>
 
-## License
+## Лицензия
 
-OSRD is licensed under the GNU Lesser General Public License v3.0, see LICENSE.
+OSRD распространяется под лицензией GNU Lesser General Public License v3.0, см. LICENSE.
 
 Copyright © 2022 The OSRD Contributors

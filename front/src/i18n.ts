@@ -8,14 +8,15 @@ import { initReactI18next } from 'react-i18next';
 
 const version = encodeURIComponent(import.meta.env.VITE_OSRD_GIT_DESCRIBE);
 
-export const supportedLngs = ['de', 'en', 'fr', 'pt'];
+export const supportedLngs = ['de', 'en', 'fr', 'pt', 'ru'];
 
 i18n
   .use(Backend)
   .use(initReactI18next)
   .use(LanguageDetector)
   .init({
-    fallbackLng: ['en', 'fr'],
+    lng: 'ru',
+    fallbackLng: 'ru',
     debug: false,
     supportedLngs,
     interpolation: {

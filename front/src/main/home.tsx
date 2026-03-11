@@ -11,7 +11,7 @@ import { ModalProvider } from 'common/BootstrapSNCF/ModalSNCF/ModalProvider';
 import NavBar from 'common/NavBar';
 
 export default function Home() {
-  const { t } = useTranslation(undefined, { keyPrefix: 'applications' });
+  const { t } = useTranslation('translation', { keyPrefix: 'applications' });
   const {
     operationalStudiesAllowed,
     stdcmAllowed,
@@ -33,6 +33,7 @@ export default function Home() {
               <CardSNCF
                 img={operationalStudiesImg}
                 title={t('operational-studies')}
+                description={t('descriptions.operational-studies')}
                 link="/operational-studies/projects"
                 data-testid="operationalStudies"
               />
@@ -42,7 +43,13 @@ export default function Home() {
               className="col-6 col-md-5 col-lg-4 col-xl-3"
               {...(!stdcmAllowed && { 'aria-disabled': true })}
             >
-              <CardSNCF img={stdcmImg} title={t('stdcm')} link="/stdcm" openInNewTab />
+              <CardSNCF
+                img={stdcmImg}
+                title={t('stdcm')}
+                description={t('descriptions.stdcm')}
+                link="/stdcm"
+                openInNewTab
+              />
             </div>
           </div>
           <div className="row justify-content-center">
@@ -52,7 +59,12 @@ export default function Home() {
                   className="col-6 col-sm-4 mb-2"
                   {...(!infraEditorAllowed && { 'aria-disabled': true })}
                 >
-                  <CardSNCF img={editorImg} title={t('infrastructures-editor')} link="/editor" />
+                  <CardSNCF
+                    img={editorImg}
+                    title={t('infrastructures-editor')}
+                    description={t('descriptions.infrastructures-editor')}
+                    link="/editor"
+                  />
                 </div>
 
                 <div
@@ -62,6 +74,7 @@ export default function Home() {
                   <CardSNCF
                     img={rollingStockEditorImg}
                     title={t('rolling-stocks-editor')}
+                    description={t('descriptions.rolling-stocks-editor')}
                     link="/rolling-stock-editor"
                   />
                 </div>
@@ -70,7 +83,12 @@ export default function Home() {
                   className="col-6 col-sm-4 mb-2"
                   {...(!mapAllowed && { 'aria-disabled': true })}
                 >
-                  <CardSNCF img={mapImg} title={t('reference-map')} link="/map" />
+                  <CardSNCF
+                    img={mapImg}
+                    title={t('reference-map')}
+                    description={t('descriptions.reference-map')}
+                    link="/map"
+                  />
                 </div>
               </div>
             </div>

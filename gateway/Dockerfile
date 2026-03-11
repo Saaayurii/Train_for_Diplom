@@ -71,13 +71,16 @@ ARG SKIP_FRONT=0
 ARG OSRD_GIT_DESCRIBE
 ENV VITE_OSRD_GIT_DESCRIBE=${OSRD_GIT_DESCRIBE}
 
-COPY --from=front_src . /app
+COPY --from=front_src package.json package-lock.json* ./
+COPY --from=front_src ui/ ./ui/
 
 # If SKIP_FRONT is set to 1, skip the front build
 # Ignore scripts to ensure none of our dependencies need to run code at
 # install time, because this is a common attack vector
 RUN --mount=type=cache,target=/root/.npm \
     if [ "$SKIP_FRONT" = "1" ]; then exit 0; else npm ci --ignore-scripts; fi
+
+COPY --from=front_src . /app
 
 # Generate the licenses file and build
 ENV NODE_OPTIONS="--max_old_space_size=4096"

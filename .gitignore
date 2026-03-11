@@ -14,3 +14,6 @@ __pycache__
 
 # Deployment overrides
 /front/public/overrides/overrides.json
+
+# Environment files
+.env

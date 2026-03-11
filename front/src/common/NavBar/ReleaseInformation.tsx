@@ -51,8 +51,8 @@ const ReleaseInformation = () => {
                     width={192}
                   />
                 </a>
-                <h2>OSRD</h2>
-                <h3>Open Source Railway Designer</h3>
+                <h2>Железная дорога</h2>
+                <h3>Конструктор железных дорог с открытым исходным кодом</h3>
               </div>
               <table className="table table-bordered">
                 <caption className="sr-only">Titre</caption>

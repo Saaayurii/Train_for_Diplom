@@ -132,14 +132,14 @@ services:
     depends_on:
       rabbitmq: { condition: service_healthy }
       valkey: { condition: service_healthy }
-    build:
-      context: core
-      dockerfile: Dockerfile
-      additional_contexts:
-        test_data: tests/data
-        static_assets: assets
-      args:
-        OSRD_GIT_DESCRIBE: development
+    # build:
+    #   context: core
+    #   dockerfile: Dockerfile
+    #   additional_contexts:
+    #     test_data: tests/data
+    #     static_assets: assets
+    #   args:
+    #     OSRD_GIT_DESCRIBE: development
     environment:
       # Actual values in ./docker/osrdyne.yml (please maintain consistency)
       # Provided here only for reuse in compose layers and doc
@@ -166,15 +166,15 @@ services:
       valkey: { condition: service_healthy }
       rabbitmq: { condition: service_healthy }
       openfga: { condition: service_started }
-    build:
-      context: editoast
-      dockerfile: Dockerfile
-      additional_contexts:
-        test_data: tests/data
-        static_assets: assets
-      args:
-        CARGO_PROFILE: dev
-        OSRD_GIT_DESCRIBE: development
+    # build:
+    #   context: editoast
+    #   dockerfile: Dockerfile
+    #   additional_contexts:
+    #     test_data: tests/data
+    #     static_assets: assets
+    #   args:
+    #     CARGO_PROFILE: dev
+    #     OSRD_GIT_DESCRIBE: development
     restart: unless-stopped
     ports: [ "8090:80" ]
     environment:
@@ -226,11 +226,11 @@ services:
     volumes:
       - ${DOCKER_SOCKET:-/var/run/docker.sock}:/var/run/docker.sock
       - ./docker/osrdyne.yml:/osrdyne.yml
-    build:
-      context: osrdyne
-      dockerfile: Dockerfile
-      args:
-        CARGO_PROFILE: dev
+    # build:
+    #   context: osrdyne
+    #   dockerfile: Dockerfile
+    #   args:
+    #     CARGO_PROFILE: dev
     restart: unless-stopped
     ports: [ "4242:4242" ]
     environment:

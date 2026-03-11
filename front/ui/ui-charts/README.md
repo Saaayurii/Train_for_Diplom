@@ -1,6 +1,6 @@
 # ui-charts
 
-`ui-charts` is a library of charts and diagrams, designed by the project OSRD.
+`ui-charts` is a library of charts and diagrams, designed by the project Железная дорога.
 
 ## Installation
 

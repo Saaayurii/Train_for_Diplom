@@ -1,16 +1,13 @@
 import { type ReactNode } from 'react';
 
 import { Gear, Info, Report, SignOut } from '@osrd-project/ui-icons';
-import getUnicodeFlagIcon from 'country-flag-icons/unicode';
 import { useTranslation } from 'react-i18next';
 
 import DropdownSNCF, { type DROPDOWN_STYLE_TYPES } from 'common/BootstrapSNCF/DropdownSNCF';
 import HelpModalSNCF from 'common/BootstrapSNCF/HelpModalSNCF';
 import { useModal } from 'common/BootstrapSNCF/ModalSNCF';
 import useAuth from 'utils/hooks/useAuth';
-import { languageCodeToCountryCode } from 'utils/strings';
 
-import ChangeLanguageModal, { languageName } from './ChangeLanguageModal';
 import ReleaseInformation from './ReleaseInformation';
 import UserSettings from './UserSettings';
 
@@ -28,6 +25,11 @@ const UserActionsDropdown = ({
   const { logout } = useAuth();
   const { openModal } = useModal();
   const { t, i18n } = useTranslation();
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'ru' ? 'en' : 'ru';
+    i18n.changeLanguage(newLang);
+  };
 
   const dropdownItems = [
     {
@@ -62,15 +64,9 @@ const UserActionsDropdown = ({
     },
     {
       node: (
-        <button
-          type="button"
-          className="btn-link text-reset"
-          onClick={() => openModal(<ChangeLanguageModal />, 'sm')}
-        >
-          <span className="mr-2">
-            {i18n.language && getUnicodeFlagIcon(languageCodeToCountryCode(i18n.language))}
-          </span>
-          <span data-testid="language-info">{languageName(i18n.language)}</span>
+        <button type="button" className="btn-link text-reset" onClick={toggleLanguage}>
+          <span className="mr-2">{i18n.language === 'ru' ? 'EN' : 'RU'}</span>
+          <span data-testid="language-info">{t('nav-bar.languages')}</span>
         </button>
       ),
       key: 'language',

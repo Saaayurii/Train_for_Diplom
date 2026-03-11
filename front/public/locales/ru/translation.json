@@ -1,0 +1,843 @@
+{
+  "Editor": {
+    "directions": {
+      "BOTH": "Оба",
+      "START_TO_STOP": "От начала до конца",
+      "STOP_TO_START": "От конца до начала"
+    },
+    "entities": {
+      "errors-linked": "Связанные проблемы"
+    },
+    "infra-errors": {
+      "corrector-modal": {
+        "create-actions": "{{creation_count}} созданий объектов",
+        "delete-actions": "{{deletion_count}} удалений объектов",
+        "loading-loader": "Вычисление возможных исправлений",
+        "no-fixes-found": "Исправлений не найдено.",
+        "saving-loader": "Применение исправлений к инфраструктуре",
+        "text": "Следующие действия будут применены для исправления некоторых ошибок инфраструктуры:",
+        "title": "Автоматический корректор ошибок",
+        "update-actions": "{{update_count}} обновлений существующих объектов"
+      },
+      "error-level": {
+        "all": "Все",
+        "errors": "Ошибки",
+        "warnings": "Предупреждения"
+      },
+      "error-type": {
+        "all": "Все",
+        "duplicated_group": {
+          "description": "Тип стрелки «{{obj_id}}» содержит дублирующуюся конфигурацию «{{original_group_path}}»",
+          "name": "Дублирующийся шаблон стрелки"
+        },
+        "empty_object": {
+          "description": "Объект «{{obj_id}}» имеет пустое поле «{{field}}»",
+          "name": "Пустой объект"
+        },
+        "invalid_group": {
+          "description": "Стрелка «{{obj_id}}» маршрута «{{group}}» находится в конфигурации «{{switch_type}}», которой не существует",
+          "name": "Неверное положение стрелки"
+        },
+        "invalid_reference": {
+          "description": "Объект «{{obj_id}}» ссылается на объект «{{reference.obj_id}}», которого не существует",
+          "name": "Неверная ссылка"
+        },
+        "invalid_route": {
+          "description": "Маршрут «{{obj_id}}» недействителен, запрошенный путь не согласован",
+          "name": "Неверный маршрут"
+        },
+        "invalid_switch_ports": {
+          "description": "Стрелка «{{obj_id}}» имеет ветвь, несовместимую с ее типом",
+          "name": "Неверный шаблон стрелки"
+        },
+        "missing_buffer_stop": {
+          "description": "Конечная точка «{{endpoint}}» пути «{{obj_id}}» не имеет тупикового упора",
+          "name": "Отсутствует тупиковый упор"
+        },
+        "missing_route": {
+          "description": "Путь «{{obj_id}}» не имеет связанного маршрута",
+          "name": "Отсутствует маршрут"
+        },
+        "node_endpoints_not_unique": {
+          "description": "Узел «{{obj_id}}» имеет конечную точку пути, используемую несколькими портами.",
+          "name": "Конечные точки узла не уникальны"
+        },
+        "object_out_of_path": {
+          "description": "Объект «{{obj_id}}» пути «{{reference.obj_id}}» не содержится в соответствующем пути",
+          "name": "Объект вне пути"
+        },
+        "odd_buffer_stop_location": {
+          "description": "Тупиковый упор «{{obj_id}}» имеет странное положение",
+          "name": "Странное положение тупикового упора"
+        },
+        "out_of_range": {
+          "description": "Объект «{{obj_id}}» имеет поле «{{field}}» с неверным значением. Значение должно находиться в следующем диапазоне [{{expected_range}}].",
+          "name": "Неверное значение"
+        },
+        "overlapping_electrifications": {
+          "description": "Электрификация «{{obj_id}}» пересекается с электрификацией «{{reference.obj_id}}» на том же пути и с тем же напряжением",
+          "name": "Пересечение зон электрификации"
+        },
+        "overlapping_speed_sections": {
+          "description": "Ограничение скорости «{{obj_id}}» пересекается с «{{reference.obj_id}}»",
+          "name": "Пересечение ограничений скорости"
+        },
+        "overlapping_switches": {
+          "description": "Стрелки «{{obj_id}}» и «{{reference.obj_id}}» имеют одинаковые оконечности",
+          "name": "Пересечение стрелок"
+        },
+        "unknown_port_name": {
+          "description": "Стрелка «{{obj_id}}» имеет ветвь «{{port_name}}», которой не существует",
+          "name": "Неизвестное имя ветви"
+        },
+        "unused_port": {
+          "description": "Ветвь «{{port_name}}» типа стрелки «{{obj_id}}» никогда не используется",
+          "name": "Неиспользуемая ветвь"
+        }
+      },
+      "infra-locked": "Обратите внимание, что вы не сможете сохранить изменения.",
+      "infra-readonly": "Обратите внимание, что вы находитесь в режиме только для чтения на этой инфраструктуре",
+      "label": {
+        "title-with-filter_one": "{{count}} проблема из {{total}}",
+        "title-with-filter_other": "{{count}} проблем из {{total}}",
+        "title-with-filter_zero": "ноль проблем из {{total}}",
+        "title_one": "{{count}} проблема",
+        "title_other": "{{count}} проблем",
+        "title_zero": "Нет проблем"
+      },
+      "list": {
+        "filter-type": "Тип ошибки",
+        "goto-error": "Выбрать и найти на карте",
+        "total-all_one": "Найдена одна ошибка или предупреждение",
+        "total-all_other": "Найдено {{count}} ошибок и предупреждений",
+        "total-all_zero": "Ошибок и предупреждений не найдено",
+        "total-errors_one": "Найдена одна ошибка",
+        "total-errors_other": "Найдено {{count}} ошибок",
+        "total-errors_zero": "Ошибок не найдено",
+        "total-warnings_one": "Найдено одно предупреждение",
+        "total-warnings_other": "Найдено {{count}} предупреждений",
+        "total-warnings_zero": "Предупреждений не найдено"
+      },
+      "modal": {
+        "title": "Список ошибок инфраструктуры {{id}}"
+      }
+    },
+    "item-statuses": {
+      "edited": "редактируется",
+      "selected": "Выбрано"
+    },
+    "layers": {
+      "buffer_stops": "Тупиковые упоры",
+      "detectors": "Детекторы",
+      "electrifications": "Электрификация",
+      "errors": "Ошибки",
+      "level_crossings": "Железнодорожные переезды",
+      "neutral_sections": "Нейтральные секции",
+      "operational_points": "Операционные точки",
+      "platforms": "Платформы",
+      "routes": "Маршруты",
+      "signals": "Сигналы",
+      "sncf_psl": "Постоянные ограничения скорости",
+      "speed_limits": "Ограничения скорости",
+      "speed_sections": "Ограничения скорости",
+      "speedlimittag": "Коды составов",
+      "switches": "Стрелки",
+      "track_sections": "Участки пути"
+    },
+    "linear-metadata": {
+      "help": "Этот компонент позволяет просматривать и изменять линейную компоновку. Вы можете масштабировать вид с помощью предоставленных кнопок или колеса мыши, а также перемещаться с помощью перетаскивания. Чтобы изменить размер сегмента, просто нажмите на него, и форма редактирования отобразится ниже. Вы также можете нажать на границу сегмента и, удерживая нажатой клавишу, перемещать границу с помощью мыши.",
+      "merge-with-left": "Объединить с предыдущим элементом",
+      "merge-with-right": "Объединить со следующим элементом",
+      "split": "Разделить элемент на два"
+    },
+    "nav": {
+      "choose-infra": "Выберите инфраструктуру",
+      "infra-error-corrector": "Автоматический корректор ошибок",
+      "infra-errors-list": "Настроить отображение проблем"
+    },
+    "obj-types": {
+      "BufferStop": "Тупиковый упор",
+      "Detector": "Детектор",
+      "Electrification": "Электрификация",
+      "LevelCrossing": "Железнодорожный переезд",
+      "Route": "Маршрут",
+      "Signal": "Сигнал",
+      "SpeedSection": "Ограничение скорости",
+      "Switch": "Стрелка",
+      "TrackSection": "Участок пути"
+    },
+    "tools": {
+      "buffer-stop-edition": {
+        "actions": {
+          "confirm-delete-entity": "Вы уверены, что хотите удалить тупиковый упор?",
+          "delete-entity": "Удалить тупиковый упор",
+          "new-entity": "Создать новый тупиковый упор",
+          "reset-entity": "Сбросить данные",
+          "save-entity": "Сохранить тупиковый упор"
+        },
+        "label": "Инструмент для тупиковых упоров"
+      },
+      "detector-edition": {
+        "actions": {
+          "confirm-delete-entity": "Вы уверены, что хотите удалить детектор?",
+          "delete-entity": "Удалить детектор",
+          "new-entity": "Создать новый детектор",
+          "reset-entity": "Сбросить данные",
+          "save-entity": "Сохранить детектор"
+        },
+        "label": "Инструмент для детекторов"
+      },
+      "electrification-edition": {
+        "actions": {
+          "confirm-delete-electrification": "Вы уверены, что хотите удалить электрификацию?",
+          "delete-electrification": "Удалить электрификацию",
+          "new-electrification": "Создать новую электрификацию",
+          "reset-electrification": "Отменить текущие изменения",
+          "save-electrification": "Сохранить электрификацию"
+        },
+        "add-new-electrification": "Добавить новую электрификацию",
+        "electrification-default": "Электрификация по умолчанию",
+        "electrifications": "Электрификация",
+        "help": {
+          "add-track": "Связать участок пути '{{track.id}}' с электрификацией {{voltage}}",
+          "init": "Нажмите на участок пути, чтобы связать его с электрификацией",
+          "remove-range": "Удалить участок пути из электрификации {{voltage}}"
+        },
+        "label": "Инструмент для электрификации"
+      },
+      "point-edition": {
+        "default-routes-error": "Произошла ошибка при загрузке связанных маршрутов.",
+        "help": {
+          "start-dragging": "Нажмите на элемент, чтобы начать его перемещение.",
+          "stop-dragging-no-line": "Элемент должен быть размещен на участке пути.",
+          "stop-dragging-on-line": "Нажмите, чтобы подтвердить перемещение элемента."
+        },
+        "linked-routes": "Связанные маршруты",
+        "no-linked-route": "Нет связанных маршрутов",
+        "routes-ending-at": "Заканчивается в…",
+        "routes-starting-from": "Начинается с…"
+      },
+      "range-edition": {
+        "edit-track-range-end": "Редактировать точку прибытия",
+        "edit-track-range-start": "Редактировать точку отправления",
+        "empty-linked-track-section": "Нажмите на участок пути, чтобы связать его с электрификацией",
+        "linked-track-sections": "Связанные участки пути",
+        "only-show-n": "Показывать только первые {{count}} участков пути",
+        "show-more-ranges_one": "Показать еще один участок пути",
+        "show-more-ranges_other": "Показать еще {{count}} участков пути"
+      },
+      "routes-edition": {
+        "actions": {
+          "delete-route": "Удалить маршрут",
+          "new-route": "Создать новый маршрут",
+          "pick-entry_point": "Инструмент выбора начальной точки",
+          "pick-entry_point-cancel": "Отменить выбор начальной точки",
+          "pick-entry_point-update": "Изменить выбранную начальную точку",
+          "pick-exit_point": "Инструмент выбора конечной точки",
+          "pick-exit_point-cancel": "Отменить выбор конечной точки",
+          "pick-exit_point-update": "Изменить выбранную конечную точку",
+          "reset-route": "Сбросить маршрут",
+          "save-route": "Сохранить маршрут"
+        },
+        "alternative-routes": "Создать похожий маршрут",
+        "confirm-delete-route": "Вы уверены, что хотите удалить этот маршрут?",
+        "create-route": "Создать новый маршрут",
+        "crossed-detectors_one": "Один детектор",
+        "crossed-detectors_other": "{{count}} детекторов",
+        "crossed-detectors_zero": "Нет пересеченных детекторов",
+        "crossed-track-ranges_one": "Блок поезда",
+        "crossed-track-ranges_other": "{{count}} диапазонов пути",
+        "crossed-track-ranges_zero": "Нет блока",
+        "delete-route": "Удалить маршрут",
+        "delete-route-success": "Маршрут был успешно удален.",
+        "directions": {
+          "START_TO_STOP": "Нормальное направление",
+          "STOP_TO_START": "Обратное направление"
+        },
+        "edit-route": "Редактировать существующий маршрут",
+        "end": "Прибытие",
+        "endpoint": "Конечная точка:",
+        "from": "от",
+        "geometry-error": "Во время расчета этого маршрута произошла ошибка",
+        "help": {
+          "actions-on-edit-route": "Вы можете удалить маршрут, отредактировать его или создать новый.",
+          "select-endpoints": "Маршрут должен иметь начальную и конечную точки.",
+          "select-route": "Выберите маршрут.",
+          "select-waypoint": "Выберите детектор или тупиковый упор.",
+          "validate-route": "Вы можете подтвердить этот маршрут или выбрать другой."
+        },
+        "include-release-detectors": "Жесткий транзит",
+        "label": "Инструмент для маршрутов",
+        "locked-release-detectors": "Это свойство нельзя отключить после сохранения",
+        "no-route-found": "Совместимый маршрут не найден",
+        "no-waypoint-picked-yet": "Нажмите кнопку, чтобы выбрать детектор или тупиковый упор на карте",
+        "preview-candidate": "Выбрать",
+        "search-routes": "Искать совместимые маршруты",
+        "search-routes-alt": "Искать альтернативные маршруты",
+        "start": "Отправление",
+        "start_direction": "Направление отправления:",
+        "swap-endpoints": "Поменять местами конечные точки",
+        "to": "в",
+        "untitled-track": "Безымянный путь"
+      },
+      "select-items": {
+        "actions": {
+          "confirm-delete-selection": "Вы уверены, что хотите удалить выделение?",
+          "delete-selection": "Удалить выделение",
+          "edit-info": "Редактировать выделение",
+          "polygon": "Выбор многоугольником",
+          "rectangle": "Выбор прямоугольником",
+          "single": "Простой выбор",
+          "split-track-section": "Разделить участок пути",
+          "unselect-all": "Снять выделение со всех"
+        },
+        "errors": {
+          "invalid-url": "Неверный URL",
+          "no-heterogenous-edition": "Невозможно одновременно редактировать несколько элементов разных типов.",
+          "no-multi-edition": "Пока невозможно редактировать несколько элементов (TODO).",
+          "unable-to-select": "Выбор невозможен"
+        },
+        "focus": "Фокус",
+        "help": {
+          "polygon-selection": "Нажмите, чтобы очертить многоугольник. Дважды щелкните, чтобы закрыть его и выбрать все элементы внутри.",
+          "rectangle-selection": "Дважды щелкните, чтобы очертить прямоугольник. Все элементы в этом прямоугольнике будут выбраны.",
+          "single-selection": "Нажмите на элемент, чтобы выбрать или отменить его выбор. Вы можете выбрать несколько элементов, удерживая клавишу Control."
+        },
+        "item": "Элемент",
+        "label": "Инструмент выбора",
+        "linked-to-line_one": "связан с участком пути",
+        "linked-to-line_other": "связан с участками пути",
+        "linked-to-n-lines_one": "связан с одним УП",
+        "linked-to-n-lines_other": "связан с {{count}} УП",
+        "linked-to-n-lines_zero": "не связан ни с одним УП",
+        "no-selection": "Элементы не выбраны",
+        "of-type": "типа",
+        "selection": "{{count}} выбранный элемент",
+        "selection_plural": "{{count}} выбранных элементов",
+        "sources": "Источники",
+        "title": "Выбрать",
+        "unselect": "Снять выделение"
+      },
+      "signal-edition": {
+        "actions": {
+          "confirm-delete-entity": "Вы уверены, что хотите удалить сигнал?",
+          "delete-entity": "Удалить сигнал",
+          "new-entity": "Создать новый сигнал",
+          "reset-entity": "Сбросить данные",
+          "save-entity": "Сохранить сигнал"
+        },
+        "label": "Инструмент для сигналов"
+      },
+      "speed-edition": {
+        "actions": {
+          "confirm-delete-speed-section": "Вы уверены, что хотите удалить ограничение скорости?",
+          "delete-speed-section": "Удалить ограничение скорости",
+          "new-speed-section": "Создать новое ограничение скорости",
+          "reset-speed-section": "Отменить текущие изменения",
+          "save-speed-section": "Сохранить ограничение скорости"
+        },
+        "add-new-speed-limit": "Добавить новое ограничение скорости",
+        "add-new-tag": "Добавить новый код состава",
+        "add-sign": "Добавить знак типа {{signType}}",
+        "add-track-range": "Нажмите, чтобы связать с:",
+        "additional-speed-limit": "Дополнительные ограничения скорости",
+        "any-position": "Любое",
+        "hovered-sign": "Знак {{signType}}",
+        "incompatible-switch": "Это положение стрелки несовместимо с другими положениями стрелок",
+        "label": "Инструмент для скоростных участков",
+        "main-speed-limit": "Ограничение скорости по умолчанию",
+        "move-range-extremity": "Нажмите, чтобы переместить конец:",
+        "new-tag": "Код состава",
+        "ralen-30-60": "Ограничение скорости",
+        "remove-track-range": "Нажмите, чтобы отсоединить от:",
+        "search-routes": "Искать совместимые маршруты",
+        "select-route": "Выберите маршрут",
+        "select-switches-to-get-route": "Выберите стрелки и их положение для поиска маршрутов",
+        "sign-category": "Знак(и) {{signType}}",
+        "sign-direction": "Направление",
+        "sign-kp": "Километровый пункт знака",
+        "sign-position": "Положение",
+        "sign-remove": "Удалить знак",
+        "sign-select": "Выбрать",
+        "sign-side": "Сторона",
+        "sign-track-id": "Идентификатор участка пути",
+        "sign-type": "Тип",
+        "sign-value": "Скорость",
+        "signs-section-list": "Список знаков участка",
+        "speed-limits": "Ограничения скорости",
+        "toggle-psl": "Постоянное ограничение скорости",
+        "toggle-psl-help": "Сначала нажмите на участок пути, чтобы активировать эту опцию"
+      },
+      "switch-edition": {
+        "actions": {
+          "confirm-delete-switch": "Вы уверены, что хотите удалить стрелку?",
+          "delete-switch": "Удалить стрелку",
+          "new-switch": "Создать новую стрелку",
+          "pick-track": "Инструмент выбора пути на карте",
+          "pick-track-cancel": "Отменить выбор пути",
+          "save-switch": "Сохранить стрелку"
+        },
+        "crossing": "Пересечение",
+        "double_slip_switch": "Двойной стрелочный перевод",
+        "duplicate-errors": "Путь {{track}} уже используется портом {{port}}",
+        "endpoint": "Конечная точка:",
+        "help": {
+          "no-move": "Стрелки нельзя перемещать, они автоматически размещаются на своем первом порту.",
+          "select-track": "Выберите путь на карте"
+        },
+        "label": "Инструмент для стрелок",
+        "link": "Связать",
+        "no-track-picked-yet": "Путь еще не выбран",
+        "point_switch": "Точечный стрелочный перевод",
+        "single_slip_switch": "Одиночный стрелочный перевод",
+        "switch-type": "Тип стрелки",
+        "switch_type_w_port_count_one": "{{type}} ({{count}} порт)",
+        "switch_type_w_port_count_other": "{{type}} ({{count}} портов)",
+        "untitled-track": "Безымянный путь"
+      },
+      "track-edition": {
+        "actions": {
+          "add-at-end": "Добавить новые точки в конце",
+          "add-at-start": "Добавить новые точки в начале",
+          "cancel-line": "Удалить выбранную линию",
+          "confirm-delete-line": "Вы уверены, что хотите удалить линию?",
+          "delete-line": "Удалить линию",
+          "mode-add-point": "Добавить точку",
+          "mode-delete-point": "Удалить точки",
+          "mode-move-point": "Переместить точки",
+          "reset-line": "Сбросить данные",
+          "save-line": "Сохранить линию",
+          "toggle-anchoring": "Включить/выключить привязку"
+        },
+        "attached-electrifications": "электрификация",
+        "attached-speed-sections": "Ограничения скорости",
+        "default-electrifications-error": "Произошла ошибка при загрузке электрификации, связанной с этим участком пути.",
+        "default-speed-sections-error": "Произошла ошибка при загрузке ограничений скорости, связанных с этим участком пути.",
+        "help": {
+          "add-anchor-point": "Нажмите, чтобы добавить точку в конце участка пути. Нажмите на путь, чтобы добавить промежуточную точку.",
+          "add-point": "Нажмите, чтобы добавить точку в конце участка пути.",
+          "delete-point": "Нажмите на точку, чтобы удалить ее с участка пути.",
+          "move-point": "Нажмите на точку один раз, чтобы начать ее перемещение.",
+          "move-point-end": "Нажмите, чтобы подтвердить перемещение точки."
+        },
+        "label": "Инструмент для путей",
+        "no-linked-electrification": "Нет данных об электрификации",
+        "no-linked-speed-section": "Ограничение скорости не введено",
+        "only-show-n": "Показывать только первые {{count}} результатов",
+        "show-more-ranges_one": "Показать еще один результат",
+        "show-more-ranges_other": "Показать еще {{count}} результатов"
+      },
+      "track-split": {
+        "actions": {
+          "save": "Сохранить разделение"
+        },
+        "help": {
+          "default": "Нажмите на точку разделения на карте или введите ее смещение от начала участка пути в форме",
+          "hover": "Нажмите на точку, чтобы ее можно было перемещать",
+          "move": "Нажмите, чтобы подтвердить перемещение, или нажмите 'esc' для отмены",
+          "split": "Нажмите на участок пути, чтобы разделить его в этом месте"
+        },
+        "label": "Инструмент для путей",
+        "offset": {
+          "description": "Смещение точки в метрах от начала участка пути",
+          "error": "Смещение точки разделения от начала должно быть больше 1 и меньше {{max}}",
+          "label": "Положение"
+        },
+        "title": "Разделить"
+      }
+    }
+  },
+  "applications": {
+    "infrastructures-editor": "Редактор инфраструктуры",
+    "operational-studies": "Эксплуатационные исследования",
+    "reference-map": "Просмотрщик карты",
+    "rolling-stocks-editor": "Редактор подвижного состава",
+    "stdcm": "Запрос краткосрочного пути"
+  },
+  "authorization": {
+    "addGrantToUser": "Добавить разрешение пользователю",
+    "grants": {
+      "edit": "запись",
+      "full": "полный доступ",
+      "none": "нет доступа",
+      "read": "чтение"
+    },
+    "permission": "Разрешение",
+    "permissionDenied": "У вас нет разрешения на выполнение этого действия",
+    "searchUser": "Искать пользователя по имени",
+    "yourGrant": "Ваш доступ: {{grant}}"
+  },
+  "common": {
+    "add": "Добавить",
+    "and": "и",
+    "cancel": "Отмена",
+    "close": "Закрыть",
+    "collapse": "Свернуть",
+    "confirm": "Подтвердить",
+    "delete": "Удалить",
+    "details": "Детали",
+    "duplicate": "Дублировать",
+    "edit": "Редактировать",
+    "error": "Произошла ошибка",
+    "expand": "Развернуть",
+    "failure": {
+      "save": {
+        "text": "Не удалось опубликовать ваши изменения",
+        "title": "Не удалось сохранить изменения"
+      }
+    },
+    "help": "Помощь",
+    "help-display": "Показать справку",
+    "leaveEditionMode": "Вы собираетесь выйти из режима редактирования, все несохраненные изменения будут потеряны.",
+    "map-actions": {
+      "help-legend": "Показать легенду",
+      "reset-north": "Сбросить камеру"
+    },
+    "navigation": {
+      "goBack": "Вернуться на предыдущую страницу",
+      "goHome": "Перейти на главную страницу"
+    },
+    "next": "Далее",
+    "no": "Нет",
+    "open": "Открыть",
+    "previous": "Назад",
+    "reset": "Сбросить",
+    "save": "Сохранить",
+    "saveEdits": "Сохранить изменения",
+    "search": "Поиск",
+    "selected": "уже выбрано",
+    "success": {
+      "save": {
+        "text": "Ваши изменения были опубликованы",
+        "title": "Изменения сохранены"
+      }
+    },
+    "toggleInfraErrors": "Переключить слой ошибок инфраструктуры",
+    "units": {
+      "day": "д",
+      "hour": "ч",
+      "km": "км",
+      "minute": "мин"
+    },
+    "validate": "Сохранить",
+    "yes": "Да",
+    "zoom-in": "Приблизить",
+    "zoom-out": "Отдалить",
+    "zoom-reset": "Сбросить масштаб"
+  },
+  "infraManagement": {
+    "actions": {
+      "cancel": "Отмена",
+      "check": "Проверить",
+      "copy": "Клонировать",
+      "delete": "Удалить",
+      "export": "Экспорт в RailJSON",
+      "lock": "Заблокировать",
+      "rename": "Переименовать",
+      "unlock": "Разблокировать",
+      "waiting": "Пожалуйста, подождите"
+    },
+    "addInfra": "Создать инфраструктуру",
+    "addInfraJSON": "Создать инфраструктуру из файла RailJSON",
+    "addInfraJSONFile": "Добавить файл RailJSON",
+    "addInfraJSONFileRemove": "Отменить импорт RailJSON",
+    "createInfra": "Создать",
+    "deleteConfirm": "Вы хотите удалить инфраструктуру?",
+    "errorMessages": {
+      "noEmptyName": "Пожалуйста, введите имя",
+      "unableToRetrieveInfraList": "Невозможно загрузить список инфраструктуры"
+    },
+    "goToEditionMode": "Редактировать",
+    "goToStandardMode": "Вернуться к выбору",
+    "infraChoice": "Инфраструктуры",
+    "infraDeleted": "Инфраструктура {{name}} была удалена.",
+    "infraManagement": "Управление инфраструктурами",
+    "infraName": "Название инфраструктуры",
+    "infrasFound_one": "Найдена {{count}} инфраструктура",
+    "infrasFound_other": "Найдено {{count}} инфраструктур",
+    "infrasFound_zero": "Инфраструктура не найдена",
+    "locked": "Заблокировано",
+    "no": "Нет",
+    "noInfraSelected": "Инфраструктура не выбрана",
+    "yes": "Да"
+  },
+  "infrastructure": "Инфраструктура",
+  "interval-editor": {
+    "add": "Добавить",
+    "begin": "Начало",
+    "delete": "Удалить",
+    "end": "Конец",
+    "merge": "Объединить со следующим сегментом",
+    "split": "Разделить",
+    "translate": "Сдвиг",
+    "value": "значение"
+  },
+  "jsonUpload": {
+    "badJSON": "Неверное содержимое. Поддерживаются только файлы RailJSON (обычно с расширениями .json или .railjson)",
+    "emptyFile": "Файл пуст",
+    "uploadError": "Произошла ошибка при загрузке файла"
+  },
+  "map": {
+    "layers-modal": {
+      "data-layers": "Слои данных",
+      "disabled-layer": "необходимо для активного инструмента",
+      "layer-selected-items_one": "Выбран один элемент",
+      "layer-selected-items_other": "Выбрано {{count}} элементов",
+      "selection-warning_one": "Один элемент был отменен.",
+      "selection-warning_other": "{{count}} элементов были отменены.",
+      "speed-limits": "Ограничения скорости",
+      "toggle-layers": "Выберите типы элементов для отображения"
+    }
+  },
+  "mapKey": {
+    "alternatingCurrent": "Переменный ток",
+    "directCurrent": "Постоянный ток",
+    "electrifications": "Электрификация",
+    "keyTitle": "Легенда",
+    "lower_pantograph": "Зона \"Опустить пантограф\"",
+    "neutral_sections": "Нейтральные секции",
+    "speedlimit": "Скорость",
+    "switch_off": "Отключить питание"
+  },
+  "mapSearch": {
+    "all": "Все",
+    "aspects": "Состояния",
+    "line": "Линия",
+    "line-code": "Код линии",
+    "main-operational-points-only": "Только основные",
+    "name": "Имя",
+    "no-aspect-selected": "Состояние не выбрано",
+    "operational-point": "Операционная точка",
+    "placeholder-ch-code": "CH",
+    "placeholder-line": "Название или номер линии",
+    "placeholder-name": "Имя, метка, код CI",
+    "placeholder-signal": "Имя сигнала",
+    "results-count_one": "1 результат",
+    "results-count_other": "{{ count }} результатов",
+    "results-count_zero": "Нет результатов",
+    "signal": "Сигнал",
+    "signal-settings": {
+      "Nf": "Непроходимый",
+      "distant": "Дальний",
+      "is_430": "430"
+    },
+    "signal-system": "Система сигнализации",
+    "too-many-results": "Результатов больше 100, пожалуйста, уточните свой поиск.",
+    "type": "Тип",
+    "unable-to-search-signal": "Поиск сигнала невозможен"
+  },
+  "mapSettings": {
+    "layers": {
+      "buffer_stops": "Тупиковые упоры",
+      "detectors": "Детекторы",
+      "electrifications": "Электрификация",
+      "errors": "Ошибки",
+      "level_crossings": "Железнодорожные переезды",
+      "neutral_sections": "Нейтральные секции",
+      "operational_points": "Операционные точки",
+      "platforms": "Платформы",
+      "routes": "Блоки поездов",
+      "showIGNBDORTHO": "Ортофото ©IGN",
+      "showIGNCadastre": "Кадастр ©IGN",
+      "showIGNSCAN25": "СКАН ПЛАН/25/100 ©IGN",
+      "showOSM": "Фон карты OSM",
+      "showOSM3dBuildings": "3D здания",
+      "showOSMtracksections": "Пути OSM",
+      "signals": "Сигналы",
+      "smoothTravel": "Плавное перемещение",
+      "sncf_psl": "Постоянные ограничения скорости",
+      "speed_limits": "Ограничения скорости",
+      "speedlimittag": "Коды составов",
+      "switches": "Стрелка",
+      "track_sections": "Участки пути"
+    },
+    "mapstyles": {
+      "darkmode": "Темный",
+      "minimal": "Минимальный",
+      "normal": "Нормальный"
+    },
+    "noSpeedLimitByTag": "Нет кода состава",
+    "terrain3DExaggeration": "Масштаб 3D рельефа",
+    "zone": "Зона"
+  },
+  "nav-bar": {
+    "about": "О программе",
+    "disconnect": "Выйти",
+    "help": "Помощь",
+    "impersonation": "Выдать себя за пользователя",
+    "information": {
+      "application": "Приложение",
+      "collaborations": "Сотрудничество",
+      "dataSources": "Источники данных",
+      "libraries": "Библиотеки и лицензии",
+      "version": "Версия"
+    },
+    "languages": "Языки",
+    "safeWord": "Ключевое слово безопасности",
+    "safeWordHelp": "\"Ключевое слово безопасности\" позволяет прозрачно фильтровать список проектов по введенному вами слову, используемому в качестве метки. Выберите сложное слово, чтобы никто не использовал его случайно. Добавьте его в качестве метки к проекту; оно будет автоматически добавлено при создании проекта, если слово введено здесь.",
+    "useNewTimesStopsTable": "Использовать новую таблицу расписаний",
+    "userSettings": "Настройки пользователя",
+    "yourSafeWord": "Введите ваше слово"
+  },
+  "rollingStock": {
+    "add": "Добавить",
+    "addNewRollingStock": "Новый подвижной состав",
+    "addNewTractionMode": "Добавить новый режим тяги",
+    "basePowerClass": "Класс мощности",
+    "cancelUpdateRollingStock": "Вы действительно хотите отменить свои изменения?",
+    "categoriesOptions": {
+      "COMMUTER_TRAIN": "Пригородный поезд",
+      "FAST_FREIGHT_TRAIN": "Скорый грузовой поезд",
+      "FREIGHT_TRAIN": "Грузовой поезд",
+      "HIGH_SPEED_TRAIN": "Высокоскоростной поезд",
+      "INTERCITY_TRAIN": "Междугородний поезд",
+      "NIGHT_TRAIN": "Ночной поезд",
+      "REGIONAL_TRAIN": "Региональный поезд",
+      "TOURISTIC_TRAIN": "Туристический поезд",
+      "TRAM_TRAIN": "Трамвай-поезд",
+      "WORK_TRAIN": "Рабочий поезд",
+      "choose": "Выберите категорию",
+      "noCategory": "Нет категории"
+    },
+    "chooseRollingStock": "Выберите подвижной состав для отображения информации",
+    "comfort": "Комфорт",
+    "comfortAcceleration": "Ускорение комфорта",
+    "comfortLevels": "Уровни комфорта",
+    "comfortTypes": {
+      "AIR_CONDITIONING": "Кондиционер",
+      "HEATING": "Отопление",
+      "STANDARD": "Стандартный"
+    },
+    "confirmAddRollingStock": "Вы уверены, что хотите добавить этот подвижной состав?",
+    "confirmUpdateRollingStock": "Пожалуйста, подтвердите свои изменения",
+    "constGamma": "Замедление по расписанию",
+    "curves": {
+      "all": "Все кривые",
+      "default": "Кривая по умолчанию"
+    },
+    "delete": {
+      "comfort": "Вы уверены, что хотите удалить этот уровень комфорта? Все связанные с ним кривые будут потеряны.",
+      "electrical_profile_level": "Вы уверены, что хотите удалить этот электрический профиль? Все связанные с ним кривые будут потеряны.",
+      "power_restriction_code": "Вы уверены, что хотите удалить кривую, связанную с этим ограничением мощности?",
+      "tractionMode": "Вы уверены, что хотите удалить этот режим тяги? Все связанные с ним кривые будут потеряны."
+    },
+    "deleteRollingStock": "Вы хотите удалить этот подвижной состав?",
+    "effort": "Усилие (кН)",
+    "electric": "Электрический",
+    "electricalPowerStartupTime": "Время восстановления мощности",
+    "electricalProfiles": "Электрические профили",
+    "errorMessages": {
+      "invalidConversion": "Неверное преобразование",
+      "minMaxRangeError": "Значение должно быть между {{min}} и {{max}}",
+      "minRangeError": "Значение должно быть больше {{min}}",
+      "missingConversion": "Это преобразование не существует в схеме. Значение не было изменено.",
+      "missingInformation": "Отсутствует информация",
+      "resourcesNotFound": "Ресурсы не найдены",
+      "rollingStockUsed": "Этот подвижной состав используется в следующих сценариях:",
+      "unableToRetrieveRollingStock": "Невозможно получить подвижной состав",
+      "unableToRetrieveRollingStockMessage": "Произошла ошибка"
+    },
+    "export": "Экспорт",
+    "exportRollingStock": "Экспорт подвижного состава",
+    "importRollingStock": "Импорт подвижного состава",
+    "inertiaCoefficient": "Коэффициент инерции",
+    "length": "Длина",
+    "listDisabled": "Пожалуйста, выйдите из режима редактирования, чтобы получить доступ к списку",
+    "loadingGauge": "Габарит",
+    "locked": "Заблокировано",
+    "mass": "Масса",
+    "maxSpeed": "Максимальная скорость",
+    "messages": {
+      "failure": "Операция не удалась",
+      "invalidEffortCurves": "Неверные кривые усилия: {{invalidEffortCurves}}. Каждая кривая должна иметь как минимум 2 комбинации значений скорости / усилия (без дублирования значений скорости). Комбинации с хотя бы одним пустым полем игнорируются. Скорость не может превышать 600 км/ч, а усилие не может превышать 1000 кН.",
+      "invalidForm": "Незавершенная форма",
+      "missingEffortCurves": "Пожалуйста, введите кривую скорость-усилие",
+      "missingInformationAutomaticallyFilled_one": "Следующее поле было инициализировано по умолчанию: {{invalidFields}}.",
+      "missingInformationAutomaticallyFilled_other": "Следующие поля были инициализированы по умолчанию: {{invalidFields}}.",
+      "missingName": "Пожалуйста, введите имя",
+      "missingPrimaryCategory": "Пожалуйста, введите основную категорию",
+      "rollingStockAdded": "Подвижной состав добавлен",
+      "rollingStockDeleted": "Подвижной состав удален",
+      "rollingStockDuplicateName": "Подвижной состав с таким же именем уже существует.",
+      "rollingStockNotAdded": "Подвижной состав не добавлен",
+      "rollingStockNotDeleted": "Подвижной состав не удален",
+      "rollingStockNotUpdated": "Подвижной состав не обновлен",
+      "rollingStockUpdated": "Подвижной состав обновлен",
+      "success": "Группа"
+    },
+    "metadata": {
+      "detail": "Деталь",
+      "family": "Семейство",
+      "grouping": "Кластеризация",
+      "name": "Имя",
+      "number": "Номер",
+      "reference": "Ссылка",
+      "series": "Серия",
+      "subseries": "Подсерия",
+      "type": "Тип",
+      "unit": "Единица"
+    },
+    "missingPowerClass_one": "Отсутствует класс мощности",
+    "missingPowerClass_other": "Отсутствуют классы мощности",
+    "notLocked": "Не заблокировано",
+    "otherCategories": "Другие категории",
+    "powerRestrictions": "Ограничение мощности и класс мощности",
+    "powerRestrictionsInfos": "Ограничение мощности",
+    "primaryCategory": "Основная категория",
+    "project": "Проект {{projectName}}:",
+    "raisePantographTime": "Время подъема пантографа",
+    "resultFound_one": "Найден 1 результат",
+    "resultFound_other": "Найдено {{count}} результатов",
+    "resultFound_zero": "Результатов не найдено",
+    "rollingResistance": "Сопротивление движению",
+    "rollingResistanceA": "Твердое трение (a)",
+    "rollingResistanceB": "Вязкое трение (b)",
+    "rollingResistanceC": "Аэродинамическое сопротивление (c)",
+    "rollingResistanceFormula": "R(v) = a + bv + cv²",
+    "rollingstockChoice": "Выберите подвижной состав",
+    "selectRollingStock": "Выбрать",
+    "speed": "Скорость (км/ч)",
+    "startupAcceleration": "Начальное ускорение",
+    "startupTime": "Время запуска",
+    "supportedSignalingSystems": "Поддерживаемые системы сигнализации",
+    "tabs": {
+      "rollingStockCurves": "Кривые скорость-усилие",
+      "rollingStockDetails": "Общие характеристики"
+    },
+    "thermal": "Двигатель внутреннего сгорания",
+    "tractionModes": "Режимы тяги",
+    "unspecified": "Не указано",
+    "waitingLoader": "Пожалуйста, подождите, загрузка базы данных подвижного состава…"
+  },
+  "subCategory": {
+    "errorMessages": {
+      "unableToRetrieveSubCategory": "Невозможно получить подкатегории",
+      "unableToRetrieveSubCategoryMessage": "Произошла ошибка"
+    }
+  },
+  "timeStopTable": {
+    "arrivalTime": "запрошенное время прибытия",
+    "calculatedArrivalTime": "расчетное время прибытия",
+    "calculatedDepartureTime": "расчетное время отпр.",
+    "calculatedDepartureTimeFull": "расчетное время отправления",
+    "ch": "CH",
+    "dayCounter": "Д+{{count}}",
+    "departureTime": "запрошенное время отпр.",
+    "departureTimeFull": "запрошенное время отправления",
+    "diffMargins": "разница запасов (с)",
+    "diffMarginsFull": "разница запасов (с)",
+    "name": "CI",
+    "noPathLoaded": "Путь не загружен",
+    "operational_point": "операционная точка",
+    "realMargin": "реальный запас (с)",
+    "receptionOnClosedSignal": "п. на закрытый сигнал",
+    "receptionOnClosedSignalFull": "прием на закрытый сигнал",
+    "shortSlipDistance": "короткое расстояние скольжения",
+    "stopTime": "время остановки (с)",
+    "theoreticalMargin": "теоретический запас",
+    "theoreticalMarginPlaceholder": "% или мин/100км",
+    "theoreticalMarginSeconds": "теоретический запас (с)",
+    "trackName": "путь",
+    "waypoint": "Путевая точка {{id}}"
+  }
+}

@@ -1,6 +1,6 @@
 # osrd-ui
 
-Icons, fonts, colors, components and all user interface items for OSRD project.
+Icons, fonts, colors, components and all user interface items for Железная дорога project.
 
 A [live storybook](https://ui.osrd.fr/) showcases all components.
 

@@ -127,3 +127,4 @@ OSRD распространяется под лицензией GNU Lesser Gener
 
 Copyright © 2022 The OSRD Contributors
 # Train_for_Diplom
+# Train_for_Diplom

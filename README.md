@@ -126,3 +126,4 @@ docker compose exec editoast editoast stdcm-search-env set-from-scenario <id> --
 OSRD распространяется под лицензией GNU Lesser General Public License v3.0, см. LICENSE.
 
 Copyright © 2022 The OSRD Contributors
+# Train_for_Diplom

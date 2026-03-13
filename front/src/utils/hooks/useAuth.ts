@@ -51,8 +51,9 @@ function useAuth() {
     }
   }, [logoutMutation, dispatch]);
 
+  // Only call authz/me when the auth backend is actually reachable
   const { data } = osrdEditoastApi.endpoints.getAuthzMe.useQuery(
-    isUserLogged ? undefined : skipToken
+    isUserLogged && authStatus === 'success' && !MOCK_AUTH_ENABLED ? undefined : skipToken
   );
 
   const [fetchFullUser] = osrdEditoastApi.endpoints.postAuthzUserInfo.useLazyQuery();
@@ -73,11 +74,12 @@ function useAuth() {
         .unwrap()
         .catch((error) => {
           if (error?.status === 404) {
-            // Gateway not available — run in standalone/guest mode
+            // Gateway not available — run in standalone/guest mode, no console noise
             dispatch(loginSuccess({ username: 'Guest User' }));
-            dispatch(updateAuthzUser({ userRoles: ['User'], userId: 0 }));
+            dispatch(updateAuthzUser({ userRoles: [], userId: 0 }));
             dispatch(setAuthStatus('unavailable'));
           } else {
+            console.error('Authentication error:', error);
             dispatch(loginError(error));
             dispatch(setAuthStatus('failed'));
           }
@@ -106,7 +108,7 @@ function useAuth() {
     username: data?.name ?? username,
     isUserLogged,
     impersonatedUser,
-    isLoading: authStatus === 'idle' || authStatus === 'pending',
+    isLoading: authStatus === 'idle' || authStatus === 'pending' || (authStatus === 'success' && !data),
     authError: authStatus === 'unavailable' ? 'auth_unavailable'
              : authStatus === 'failed'      ? 'auth_failed'
              : null,

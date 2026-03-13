@@ -2,12 +2,34 @@
   --header-height: 40px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html:has(> body > .menu-overlay) {
   overflow: hidden;
 }
 
 body {
   min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #e5e7eb 100%);
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  position: relative;
+  overflow-x: hidden;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+  }
 }
 
 .menu-overlay {

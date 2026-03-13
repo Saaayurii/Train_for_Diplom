@@ -1,25 +1,274 @@
 .nav-bar {
-  .main-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  background: rgba(20, 184, 166, 0.95);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.5s ease-out;
+
+  // Layout: row on desktop, wrap on mobile
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  min-height: 60px;
+  gap: 8px;
+
+  .app-logo {
+    flex-shrink: 0;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      padding: 12px 0;
+
+      &:hover {
+        transform: scale(1.05);
+
+        .app-name-text {
+          background: linear-gradient(to right, #ffffff, #e0f2fe);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+      }
+
+      img {
+        height: 32px;
+        width: auto;
+      }
+
+      .app-name-text {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: white;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px;
+
+        @media (max-width: 480px) {
+          max-width: 130px;
+          font-size: 0.95rem;
+        }
+      }
+    }
+  }
+
+  // Desktop nav — hidden on mobile
+  .desktop-nav {
     display: flex;
-    gap: 2rem;
-    background-color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: 9999px;
-    a, button {
-      color: #333;
+    gap: 4px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 6px 10px;
+    border-radius: 14px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    flex-wrap: nowrap;
+
+    @media (max-width: 900px) {
+      display: none;
+    }
+
+    a,
+    button {
+      color: white;
       text-decoration: none;
       background: none;
       border: none;
       cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 0.875rem;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+
       &:hover {
-        color: #14b8a6;
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-1px);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  // Mobile dropdown nav
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(13, 148, 136, 0.98);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 12px 8px 16px;
+    gap: 4px;
+    order: 10;
+    animation: slideDown 0.2s ease-out;
+
+    a,
+    button {
+      color: white;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-align: left;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+    }
+
+    .mobile-logout {
+      margin-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 14px;
+      color: #fca5a5;
+
+      &:hover {
+        background: rgba(239, 68, 68, 0.15);
       }
     }
   }
 
   .user-actions {
     display: flex;
-    gap: 1rem;
+    gap: 10px;
     align-items: center;
+    flex-shrink: 0;
+
+    .user-dropdown-link {
+      text-decoration: none;
+
+      @media (max-width: 900px) {
+        .user-name {
+          display: none;
+        }
+      }
+    }
+
+    .user-dropdown {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      color: white;
+      font-weight: 500;
+      font-size: 0.875rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      white-space: nowrap;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.25);
+      }
+    }
+
+    .btn {
+      padding: 8px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      background: rgba(0, 0, 0, 0.2);
+      color: white;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.35);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: translateY(-1px);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+
+      // Hide "Выйти" on mobile (available in mobile menu)
+      @media (max-width: 900px) {
+        display: none;
+      }
+    }
+
+    // Hamburger — only on mobile
+    .hamburger-btn {
+      display: none;
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      flex-shrink: 0;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.25);
+      }
+
+      @media (max-width: 900px) {
+        display: flex;
+      }
+
+      .hamburger-icon {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 20px;
+
+        span {
+          display: block;
+          height: 2px;
+          width: 100%;
+          background: white;
+          border-radius: 2px;
+          transition: all 0.3s ease;
+          transform-origin: center;
+        }
+
+        &.open {
+          span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+          }
+          span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+          }
+          span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

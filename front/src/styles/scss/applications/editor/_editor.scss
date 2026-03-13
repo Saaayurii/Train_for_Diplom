@@ -26,18 +26,37 @@
 
   button.editor-btn {
     box-sizing: border-box;
-    font-size: 1.3em;
-
+    font-size: 1.15em;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
     color: $blue;
     background: $white;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+
+    &:hover:not(:disabled) {
+      background: rgba(59, 130, 246, 0.08);
+      color: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 3px 8px rgba(59, 130, 246, 0.15);
+    }
 
     &.active:not(:disabled) {
       color: $white;
-      background: $blue-dark;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      box-shadow: 0 3px 10px rgba(59, 130, 246, 0.35);
+      transform: translateY(-1px);
     }
 
     &:disabled {
       color: $gray;
+      opacity: 0.5;
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
     }
   }
 
@@ -70,24 +89,51 @@
   }
 
   .tool-box {
-    button.active:not(:disabled) {
-      background: $blue-dark;
-      border: 3px solid $white;
+    background: linear-gradient(180deg, #1e40af 0%, #1d4ed8 100%);
+    box-shadow: 2px 0 12px rgba(29, 78, 216, 0.2);
+    padding: 12px 10px;
+    gap: 4px;
+
+    button.editor-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.85);
+      border: none;
+      box-shadow: none;
+
+      &:hover:not(:disabled) {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        box-shadow: none;
+      }
+
+      &.active:not(:disabled) {
+        background: white;
+        color: #1d4ed8;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
     }
   }
-  .actions-box {
-    background: white;
 
-    button:not(.active):not(:disabled) {
-      border: 3px solid $blue;
+  .actions-box {
+    background: #f8fafc;
+    border-right: 1px solid #e5e7eb;
+    padding: 12px 10px;
+    gap: 4px;
+
+    button.editor-btn:not(.active):not(:disabled) {
+      border: 1.5px solid rgba(59, 130, 246, 0.3);
     }
-    button:disabled {
-      border: 3px solid $gray;
+    button.editor-btn:disabled {
+      border: 1.5px solid #e5e7eb;
     }
   }
 
   .infra-editor-warning-banner {
     flex-shrink: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 0;
+    padding: 10px 16px;
   }
 
   .panel-container {
@@ -95,24 +141,29 @@
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    background: #f8fafc;
+    border-right: 1px solid #e5e7eb;
 
     .panel-container-collapse-button {
       position: absolute;
       padding-bottom: 3px;
       height: 48px;
       width: 28px;
-      color: var(--grey40);
-      background-color: var(--ambientB10);
+      color: #6b7280;
+      background: white;
       border-radius: 5px 0 0 5px;
       transform: translate(492px, 500px);
-      box-shadow: 0 0 0 1px var(--black10);
+      box-shadow: -2px 0 8px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.06);
       clip-path: inset(-1px 0 -1px -1px);
+      transition: all 0.2s ease;
+      border: none;
 
       &:hover {
-        color: var(--grey80);
-        background-color: var(--grey20);
+        color: #1d4ed8;
+        background: #eff6ff;
       }
     }
+
     .hidden {
       display: none;
     }

@@ -3,6 +3,9 @@ import { Suspense, useEffect, useCallback } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import 'i18n';
 
+import AboutView from 'applications/about/AboutView';
+import AuthPage from 'applications/auth/AuthPage';
+import ProfilePage from 'applications/profile/ProfilePage';
 import HomeEditor from 'applications/editor/Home';
 import Project from 'applications/operationalStudies/views/Project';
 import ProjectList from 'applications/operationalStudies/views/ProjectList';
@@ -37,6 +40,18 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <InitialRedirect />,
+  },
+  {
+    path: 'auth',
+    element: <AuthPage />,
+  },
+  {
+    path: 'about',
+    element: <AboutView />,
+  },
+  {
+    path: 'profile',
+    element: <ProfilePage />,
   },
   {
     path: 'map/*',

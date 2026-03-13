@@ -1,11 +1,23 @@
 .stdcm-card {
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow:
     0px 1px 0px rgba(255, 255, 255, 1) inset,
-    0px 4px 7px -3px rgba(24, 68, 239, 0.19),
-    0px 1px 3px rgba(49, 46, 43, 0.2);
+    0px 4px 16px -3px rgba(24, 68, 239, 0.12),
+    0px 1px 4px rgba(49, 46, 43, 0.1);
   background-color: rgba(255, 255, 255, 1);
   position: relative;
+  transition:
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s ease;
+  border: 1px solid rgba(148, 163, 184, 0.08);
+
+  &:not(.disabled):hover {
+    box-shadow:
+      0px 1px 0px rgba(255, 255, 255, 1) inset,
+      0px 8px 24px -4px rgba(24, 68, 239, 0.18),
+      0px 2px 8px rgba(49, 46, 43, 0.12);
+    transform: translateY(-1px);
+  }
 
   .stdcm-default-card-icon {
     color: #1844ef;
@@ -55,10 +67,10 @@
   }
 
   .stdcm-card__header {
-    border-radius: 8px 8px 0px 0px;
+    border-radius: 12px 12px 0px 0px;
     box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.75) inset;
-    background-color: rgba(235, 235, 234, 1);
-    color: rgba(0, 0, 0, 1);
+    background: linear-gradient(135deg, rgba(235, 235, 234, 1) 0%, rgba(245, 246, 248, 1) 100%);
+    color: #1f2937;
     font-size: 1.125rem;
     font-weight: 600;
     letter-spacing: 0px;
@@ -66,6 +78,7 @@
     line-height: 24px;
     padding: 7px 16px 0px 16px;
     height: 40px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.15);
     span {
       padding-bottom: 6px;
     }

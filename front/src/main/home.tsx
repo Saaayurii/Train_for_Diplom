@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from 'react';
 
 import editorImg from 'assets/pictures/home/editor.svg';
 import mapImg from 'assets/pictures/home/map.svg';
@@ -8,7 +9,18 @@ import stdcmImg from 'assets/pictures/home/stdcm.svg';
 import useAllowedUserRoles from 'common/authorization/hooks/useAllowedUserRoles';
 import CardSNCF from 'common/BootstrapSNCF/CardSNCF';
 import { ModalProvider } from 'common/BootstrapSNCF/ModalSNCF/ModalProvider';
+import ImageWithFallback from 'common/ImageWithFallback';
 import NavBar from 'common/NavBar';
+import './home.scss';
+
+const trainImages = [
+  '/assets/train/image.png',
+  '/assets/train/image copy.png',
+  '/assets/train/image copy 2.png',
+  '/assets/train/image copy 3.png',
+  '/assets/train/image copy 4.png',
+  '/assets/train/image copy 5.png',
+];
 
 export default function Home() {
   const { t } = useTranslation('translation');
@@ -20,14 +32,72 @@ export default function Home() {
     mapAllowed,
   } = useAllowedUserRoles();
 
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % trainImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <ModalProvider>
       <NavBar />
-      <main className="mastcontainer mastcontainer-no-mastnav">
-        <div className="cardscontainer">
-          <div className="row justify-content-center mb-2">
+
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="hero-background">
+          {trainImages.map((img, index) => (
             <div
-              className="col-6 col-md-5 col-lg-4 col-xl-3"
+              key={img}
+              className={`hero-image ${index === currentImageIndex ? 'active' : ''}`}
+            >
+              <ImageWithFallback
+                src={img}
+                alt={`Поезд ${index + 1}`}
+                showPlaceholder={false}
+              />
+            </div>
+          ))}
+          <div className="hero-overlay" />
+        </div>
+
+        <div className="hero-content">
+          <h1 className="hero-title">
+            Информационная система железной дороги
+          </h1>
+          <p className="hero-subtitle">
+            Современное решение для управления, планирования и мониторинга железнодорожной инфраструктуры
+          </p>
+          <div className="hero-stats">
+            <div className="stat-item">
+              <div className="stat-number">10,000+</div>
+              <div className="stat-label">км путей</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">500+</div>
+              <div className="stat-label">составов в день</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">24/7</div>
+              <div className="stat-label">мониторинг</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Applications Section */}
+      <main className="applications-section">
+        <div className="section-header">
+          <h2 className="section-title">Модули системы</h2>
+          <p className="section-subtitle">Выберите нужный модуль для работы</p>
+        </div>
+
+        <div className="cards-container">
+          <div className="row justify-content-center mb-4">
+            <div
+              className="col-12 col-md-6 col-lg-4 mb-4"
               {...(!operationalStudiesAllowed && { 'aria-disabled': true })}
             >
               <CardSNCF
@@ -40,7 +110,7 @@ export default function Home() {
             </div>
 
             <div
-              className="col-6 col-md-5 col-lg-4 col-xl-3"
+              className="col-12 col-md-6 col-lg-4 mb-4"
               {...(!stdcmAllowed && { 'aria-disabled': true })}
             >
               <CardSNCF
@@ -52,44 +122,140 @@ export default function Home() {
               />
             </div>
           </div>
+
           <div className="row justify-content-center">
-            <div className="col-12 col-md-10 col-lg-8 col-xl-6">
-              <div className="row">
-                <div
-                  className="col-6 col-sm-4 mb-2"
-                  {...(!infraEditorAllowed && { 'aria-disabled': true })}
-                >
-                  <CardSNCF
-                    img={editorImg}
-                    title={t('applications.infrastructures-editor')}
-                    description={t('applications.descriptions.infrastructures-editor')}
-                    link="/editor"
-                  />
-                </div>
+            <div className="col-12 col-md-4 mb-4" {...(!infraEditorAllowed && { 'aria-disabled': true })}>
+              <CardSNCF
+                img={editorImg}
+                title={t('applications.infrastructures-editor')}
+                description={t('applications.descriptions.infrastructures-editor')}
+                link="/editor"
+              />
+            </div>
 
-                <div
-                  className="col-6 col-sm-4 mb-2"
-                  {...(!rollingStockEditorAllowed && { 'aria-disabled': true })}
-                >
-                  <CardSNCF
-                    img={rollingStockEditorImg}
-                    title={t('applications.rolling-stocks-editor')}
-                    description={t('applications.descriptions.rolling-stocks-editor')}
-                    link="/rolling-stock-editor"
-                  />
-                </div>
+            <div className="col-12 col-md-4 mb-4" {...(!rollingStockEditorAllowed && { 'aria-disabled': true })}>
+              <CardSNCF
+                img={rollingStockEditorImg}
+                title={t('applications.rolling-stocks-editor')}
+                description={t('applications.descriptions.rolling-stocks-editor')}
+                link="/rolling-stock-editor"
+              />
+            </div>
 
-                <div
-                  className="col-6 col-sm-4 mb-2"
-                  {...(!mapAllowed && { 'aria-disabled': true })}
-                >
-                  <CardSNCF
-                    img={mapImg}
-                    title={t('applications.reference-map')}
-                    description={t('applications.descriptions.reference-map')}
-                    link="/map"
-                  />
-                </div>
+            <div className="col-12 col-md-4 mb-4" {...(!mapAllowed && { 'aria-disabled': true })}>
+              <CardSNCF
+                img={mapImg}
+                title={t('applications.reference-map')}
+                description={t('applications.descriptions.reference-map')}
+                link="/map"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Features Section */}
+        <div className="features-section">
+          <div className="row">
+            <div className="col-md-4">
+              <div className="feature-card">
+                <div className="feature-icon">🚄</div>
+                <h3>Высокая скорость</h3>
+                <p>Быстрая обработка данных и мгновенный отклик системы</p>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="feature-card">
+                <div className="feature-icon">🔒</div>
+                <h3>Безопасность</h3>
+                <p>Надежная защита данных и контроль доступа</p>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="feature-card">
+                <div className="feature-icon">📊</div>
+                <h3>Аналитика</h3>
+                <p>Подробные отчеты и визуализация данных</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Railway History Roadmap Section */}
+        <div className="railway-history-section">
+          <div className="section-header">
+            <h2 className="section-title">История железных дорог России</h2>
+            <p className="section-subtitle">Путь длиною в два века</p>
+          </div>
+          <div className="history-timeline">
+            <div className="timeline-item timeline-item--left">
+              <div className="timeline-year">1837</div>
+              <div className="timeline-dot" />
+              <div className="timeline-card">
+                <div className="timeline-card__icon">🏰</div>
+                <h3>Первая железная дорога</h3>
+                <p>Открытие Царскосельской железной дороги — первой публичной железной дороги в России. Протяжённость 27 км, соединяла Санкт-Петербург с Царским Селом и Павловском.</p>
+              </div>
+            </div>
+            <div className="timeline-item timeline-item--right">
+              <div className="timeline-year">1851</div>
+              <div className="timeline-dot" />
+              <div className="timeline-card">
+                <div className="timeline-card__icon">🛤️</div>
+                <h3>Николаевская железная дорога</h3>
+                <p>Введена в эксплуатацию магистраль Санкт-Петербург — Москва. Протяжённость 645 км — одна из самых длинных двухпутных железных дорог того времени в мире.</p>
+              </div>
+            </div>
+            <div className="timeline-item timeline-item--left">
+              <div className="timeline-year">1891</div>
+              <div className="timeline-dot" />
+              <div className="timeline-card">
+                <div className="timeline-card__icon">🌏</div>
+                <h3>Транссибирская магистраль</h3>
+                <p>Начало строительства Великого Сибирского пути — самой длинной железной дороги в мире (9 288 км). Строительство завершено в 1916 году, соединив европейскую Россию с Дальним Востоком.</p>
+              </div>
+            </div>
+            <div className="timeline-item timeline-item--right">
+              <div className="timeline-year">1935</div>
+              <div className="timeline-dot" />
+              <div className="timeline-card">
+                <div className="timeline-card__icon">🚇</div>
+                <h3>Московское метро</h3>
+                <p>Открытие первой линии Московского метрополитена. Первые 13 станций соединили «Сокольники» и «Парк культуры». Сегодня это одна из крупнейших подземных сетей в мире.</p>
+              </div>
+            </div>
+            <div className="timeline-item timeline-item--left">
+              <div className="timeline-year">1974</div>
+              <div className="timeline-dot" />
+              <div className="timeline-card">
+                <div className="timeline-card__icon">🏔️</div>
+                <h3>БАМ — стройка века</h3>
+                <p>Начало масштабного строительства Байкало-Амурской магистрали. Дорога протяжённостью 4 324 км прошла через вечную мерзлоту, горные хребты и крупные реки Сибири.</p>
+              </div>
+            </div>
+            <div className="timeline-item timeline-item--right">
+              <div className="timeline-year">2009</div>
+              <div className="timeline-dot" />
+              <div className="timeline-card">
+                <div className="timeline-card__icon">⚡</div>
+                <h3>«Сапсан» — эра высоких скоростей</h3>
+                <p>Запуск высокоскоростного поезда «Сапсан» между Москвой и Санкт-Петербургом. Скорость до 250 км/ч, время в пути сократилось до 3 ч 45 мин.</p>
+              </div>
+            </div>
+            <div className="timeline-item timeline-item--left">
+              <div className="timeline-year">2019</div>
+              <div className="timeline-dot" />
+              <div className="timeline-card">
+                <div className="timeline-card__icon">🌉</div>
+                <h3>Крымский мост. Железнодорожный переход</h3>
+                <p>Открытие железнодорожного сообщения по Крымскому мосту через Керченский пролив. Мост длиной 19 км — самый длинный в России.</p>
+              </div>
+            </div>
+            <div className="timeline-item timeline-item--right">
+              <div className="timeline-year">2030+</div>
+              <div className="timeline-card timeline-card--future">
+                <div className="timeline-card__icon">🚀</div>
+                <h3>Высокоскоростные магистрали</h3>
+                <p>Реализация национального проекта по строительству высокоскоростных железнодорожных магистралей. Скорость до 400 км/ч, связь крупнейших городов страны.</p>
               </div>
             </div>
           </div>

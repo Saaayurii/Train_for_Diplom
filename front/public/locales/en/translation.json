@@ -452,7 +452,14 @@
     "operational-studies": "Operational studies",
     "reference-map": "Map viewer",
     "rolling-stocks-editor": "Rolling stock editor",
-    "stdcm": "Short term path request"
+    "stdcm": "Short term path request",
+    "descriptions": {
+      "infrastructures-editor": "Create and edit railway infrastructure",
+      "operational-studies": "Plan and analyze train movements",
+      "reference-map": "Browse the interactive railway map",
+      "rolling-stocks-editor": "Manage the rolling stock database",
+      "stdcm": "Short-term train path planning"
+    }
   },
   "authorization": {
     "addGrantToUser": "Add grant to user",

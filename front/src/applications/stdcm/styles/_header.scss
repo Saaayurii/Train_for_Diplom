@@ -1,28 +1,41 @@
 .stdcm-header {
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
-  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 50px 8px 0px;
+  padding: 16px 50px 16px 0px;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInDown 0.6s ease-out;
 
   &__impersonated {
-    background-color: var(--highlight30);
+    background: linear-gradient(135deg, var(--highlight30) 0%, rgba(255, 242, 179, 0.3) 100%);
   }
 
   &__logo {
-    padding: 10px 0 10px 10px;
+    padding: 10px 0 10px 20px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   &__title {
-    color: rgba(0, 0, 0, 1);
+    color: #1f2937;
     font-size: 2rem;
-    font-weight: 600;
-    font-style: SemiBold;
-    letter-spacing: -0, 6px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
     text-align: left;
     line-height: 40px;
+    background: linear-gradient(135deg, #14b8a6, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
   }
 
   &__notification {

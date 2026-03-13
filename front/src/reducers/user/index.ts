@@ -8,8 +8,11 @@ export type UserPreferences = {
   useNewTimesStopsTable: boolean;
 };
 
+export type AuthStatus = 'idle' | 'pending' | 'success' | 'unavailable' | 'failed';
+
 export type UserState = {
   isLogged: boolean;
+  authStatus: AuthStatus;
   impersonatedUser?: UserInfo;
   loginError?: ApiError;
   userId: number;
@@ -32,6 +35,7 @@ export type UserInfo = {
 
 export const userInitialState: UserState = {
   isLogged: false,
+  authStatus: 'idle',
   impersonatedUser: undefined,
   loginError: undefined,
   username: '',
@@ -45,6 +49,9 @@ export const userSlice = createSlice({
   name: 'user',
   initialState: userInitialState,
   reducers: {
+    setAuthStatus(state, action: PayloadAction<AuthStatus>) {
+      state.authStatus = action.payload;
+    },
     loginSuccess(
       state,
       action: PayloadAction<{
@@ -54,10 +61,12 @@ export const userSlice = createSlice({
       const { username } = action.payload;
       state.username = username;
       state.isLogged = true;
+      state.authStatus = 'success';
     },
     loginError(state, action: PayloadAction<ApiError | undefined>) {
       state.isLogged = false;
       state.loginError = action.payload;
+      state.authStatus = 'failed';
     },
     logoutSuccess() {
       return userInitialState;
@@ -85,6 +94,7 @@ export const userSlice = createSlice({
 });
 
 export const {
+  setAuthStatus,
   loginSuccess,
   loginError,
   logoutSuccess,

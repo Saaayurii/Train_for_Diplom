@@ -10,6 +10,7 @@ export const getUserPreferences = makeUserSelector('userPreferences');
 const makeUserPreferencesSelector =
   makeSubSelector<UserState['userPreferences']>(getUserPreferences);
 export const getIsUserLogged = makeUserSelector('isLogged');
+export const getAuthStatus = makeUserSelector('authStatus');
 export const getLoginError = makeUserSelector('loginError');
 export const getUserSafeWord = makeUserPreferencesSelector('safeWord');
 export const getUseNewTimesStopsTable = makeUserPreferencesSelector('useNewTimesStopsTable');

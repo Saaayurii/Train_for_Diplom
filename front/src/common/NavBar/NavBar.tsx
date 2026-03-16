@@ -1,4 +1,4 @@
-import { useMemo, useState, type ReactElement } from 'react';
+import { useState, type ReactElement } from 'react';
 
 import { Hubot, Person } from '@osrd-project/ui-icons';
 import cx from 'classnames';
@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 import { useModal } from 'common/BootstrapSNCF/ModalSNCF';
 import HelpModalSNCF from 'common/BootstrapSNCF/HelpModalSNCF';
 import useAuth from 'utils/hooks/useAuth';
-import useDeploymentSettings from 'utils/hooks/useDeploymentSettings';
 
 import ReleaseInformation from './ReleaseInformation';
 import UserSettings from './UserSettings';
@@ -19,7 +18,6 @@ type NavBarProps = {
 
 const NavBar = ({ appName }: NavBarProps = {}) => {
   const { openModal } = useModal();
-  const deploymentSettings = useDeploymentSettings();
   const { t, i18n } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -30,18 +28,16 @@ const NavBar = ({ appName }: NavBarProps = {}) => {
     i18n.changeLanguage(newLang);
   };
 
-  const { logoUrl, name } = useMemo(() => {
-    if (!deploymentSettings)
-      return { logoUrl: undefined, name: 'Железная дорога' };
-    return {
-      logoUrl: deploymentSettings.operationalStudiesLogoWithName,
-      name: deploymentSettings.operationalStudiesName,
-    };
-  }, [deploymentSettings]);
+  const name = 'РИСЖ';
 
   const navItems = (
     <>
       <a href="/about" onClick={() => setMobileMenuOpen(false)}>О системе</a>
+      <a href="/trains" onClick={() => setMobileMenuOpen(false)}>Поезда</a>
+      <a href="/dashboard" onClick={() => setMobileMenuOpen(false)}>Аналитика</a>
+      <a href="/schedule" onClick={() => setMobileMenuOpen(false)}>Расписание</a>
+      <a href="/routes" onClick={() => setMobileMenuOpen(false)}>Маршруты</a>
+      <a href="/glossary" onClick={() => setMobileMenuOpen(false)}>Глоссарий</a>
       <button type="button" onClick={() => { openModal(<ReleaseInformation />, 'lg'); setMobileMenuOpen(false); }}>
         {t('nav-bar.about')}
       </button>
@@ -59,22 +55,8 @@ const NavBar = ({ appName }: NavBarProps = {}) => {
 
   return (
     <div className={cx('nav-bar', { impersonated: impersonatedUser })}>
-      <div
-        className={cx('app-logo', {
-          'custom-logo': deploymentSettings?.hasCustomizedLogo,
-          'without-image': logoUrl,
-        })}
-      >
+      <div className="app-logo">
         <a href="/">
-          {logoUrl ? (
-            <img
-              src={logoUrl}
-              data-testid={`${name.toLowerCase()}-logo`}
-              alt={`${name.toUpperCase()} Logo`}
-            />
-          ) : (
-            <div style={{ width: '24px' }} />
-          )}
           <span className="app-name-text">{appName || name}</span>
         </a>
       </div>

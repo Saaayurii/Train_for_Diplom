@@ -72,11 +72,19 @@
       margin-bottom: 20px;
     }
 
-    .footer-logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #14b8a6;
+    .footer-diploma {
       margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      &__item {
+        font-size: 0.9rem;
+        color: #94a3b8;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
     }
   }
 

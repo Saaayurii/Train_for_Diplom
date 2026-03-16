@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-
 import { useTranslation } from 'react-i18next';
 
 type AttributionLicense = {
@@ -12,38 +10,19 @@ type AttributionLicense = {
 
 const COLLABORATIONS: AttributionLicense[] = [
   {
-    name: 'Netzgrafik-Editor',
+    name: 'Донецкий государственный университет',
     version: '',
-    identifier: 'Apache-2.0, © 2024 Swiss Federal Railways SBB AG',
-    url: 'https://github.com/SchweizerischeBundesbahnen/netzgrafik-editor-frontend',
+    identifier: 'Кафедра информационных технологий',
+    url: 'https://donnu.ru',
   },
 ];
 
-// Libs which are not in the package.json, so we add it statically
 const DATA_SOURCES: AttributionLicense[] = [
   {
-    name: 'IGN Ortho',
+    name: 'Денис Мельников',
     version: '',
-    identifier: '© IGN - 2021, https://geoservices.ign.fr/cgu-licences',
-    url: 'https://geoservices.ign.fr/services-web-experts-ortho',
-  },
-  {
-    name: 'Open data SNCF',
-    identifier: 'https://data.sncf.com/pages/licence/#A1',
-    version: '',
-    url: 'https://ressources.data.sncf.com/pages/accueil/',
-  },
-  {
-    name: 'MLG Traffic',
-    identifier: 'CC-BY-NC-SA 3.0, Marc Le Gad',
-    version: '',
-    url: 'http://www.mlgtraffic.net',
-  },
-  {
-    name: 'Terrain Tiles',
-    identifier: 'https://github.com/tilezen/joerd/blob/master/docs/attribution.md',
-    version: '',
-    url: 'https://registry.opendata.aws/terrain-tiles/',
+    identifier: 'Разработка информационной системы железной дороги, 2025',
+    url: 'https://vk.com/pivosrakom',
   },
 ];
 
@@ -73,15 +52,6 @@ const LicenseCard = ({
 const LicenseAttributions = () => {
   const { t } = useTranslation();
 
-  const [licences, setLicences] = useState<AttributionLicense[]>([]);
-
-  useEffect(() => {
-    fetch('/licenses.json')
-      .then((res) => res.json())
-      .then((data) => setLicences(data))
-      .catch((err) => console.error('Error loading licenses', err));
-  }, []);
-
   return (
     <div className="col-md-6 h-100 d-flex flex-column">
       <h2 className="text-center mb-4">{t('nav-bar.information.collaborations')}</h2>
@@ -94,12 +64,6 @@ const LicenseAttributions = () => {
       <div className="license-attributions">
         {DATA_SOURCES.map((dataSource) => (
           <LicenseCard attribution={dataSource} key={dataSource.name} />
-        ))}
-      </div>
-      <h2 className="text-center my-4">{t('nav-bar.information.libraries')}</h2>
-      <div className="license-attributions licenses">
-        {licences.map((attribution) => (
-          <LicenseCard attribution={attribution} key={attribution.name + attribution.version} />
         ))}
       </div>
     </div>

@@ -1,15 +1,47 @@
+import { useState, useEffect } from 'react';
+
 import { ModalProvider } from 'common/BootstrapSNCF/ModalSNCF/ModalProvider';
+import ImageWithFallback from 'common/ImageWithFallback';
 import NavBar from 'common/NavBar';
 
 import './AboutView.scss';
 
+const trainImages = [
+  '/assets/train/image.png',
+  '/assets/train/image copy.png',
+  '/assets/train/image copy 2.png',
+  '/assets/train/image copy 3.png',
+  '/assets/train/image copy 4.png',
+  '/assets/train/image copy 5.png',
+];
+
 export default function AboutView() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % trainImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <ModalProvider>
       <NavBar />
       <div className="about-page">
         {/* Hero Section */}
         <section className="about-hero">
+          <div className="about-hero-bg">
+            {trainImages.map((img, index) => (
+              <div
+                key={img}
+                className={`about-hero-slide ${index === currentImageIndex ? 'active' : ''}`}
+              >
+                <ImageWithFallback src={img} alt={`Поезд ${index + 1}`} showPlaceholder={false} />
+              </div>
+            ))}
+            <div className="about-hero-overlay" />
+          </div>
           <div className="about-hero-content">
             <h1 className="about-hero-title">О системе</h1>
             <p className="about-hero-subtitle">

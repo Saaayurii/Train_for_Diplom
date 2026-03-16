@@ -27,38 +27,39 @@ const Footer = () => (
         <div className="footer-grid">
           {/* About Section */}
           <div className="footer-column">
-            <h3 className="footer-title">О системе</h3>
+            <h3 className="footer-title">О дипломной работе</h3>
             <p className="footer-description">
-              Современная информационная система управления железнодорожной инфраструктурой.
-              Обеспечивает эффективное планирование, мониторинг и контроль всех процессов.
+              «Разработка информационной системы железной дороги» — дипломная работа,
+              реализующая комплекс модулей для управления ж/д инфраструктурой.
             </p>
-            <div className="footer-logo">
-              🚄 Железная дорога
+            <div className="footer-diploma">
+              <div className="footer-diploma__item">👨‍🎓 Денис Мельников</div>
+              <div className="footer-diploma__item">🏛️ ДонГУ, 2025</div>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="footer-column">
-            <h3 className="footer-title">Быстрые ссылки</h3>
+            <h3 className="footer-title">Разделы</h3>
             <ul className="footer-links">
               <li><a href="/about">О системе</a></li>
-              <li><a href="/operational-studies/projects">Операционные исследования</a></li>
-              <li><a href="/editor">Редактор инфраструктуры</a></li>
-              <li><a href="/map">Карта маршрутов</a></li>
-              <li><a href="/rolling-stock-editor">Редактор подвижного состава</a></li>
-              <li><a href="/stdcm">STDCM</a></li>
+              <li><a href="/trains">Поезда России</a></li>
+              <li><a href="/dashboard">Аналитика</a></li>
+              <li><a href="/schedule">Расписание</a></li>
+              <li><a href="/routes">Маршруты</a></li>
+              <li><a href="/glossary">Глоссарий</a></li>
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* Modules */}
           <div className="footer-column">
-            <h3 className="footer-title">Ресурсы</h3>
+            <h3 className="footer-title">Модули системы</h3>
             <ul className="footer-links">
-              <li><a href="#documentation">Документация</a></li>
-              <li><a href="#api">API</a></li>
-              <li><a href="#support">Техподдержка</a></li>
-              <li><a href="#training">Обучение</a></li>
-              <li><a href="#faq">FAQ</a></li>
+              <li><a href="/operational-studies/projects">Операционные исследования</a></li>
+              <li><a href="/editor">Редактор инфраструктуры</a></li>
+              <li><a href="/map">Карта маршрутов</a></li>
+              <li><a href="/rolling-stock-editor">Подвижной состав</a></li>
+              <li><a href="/stdcm">STDCM</a></li>
             </ul>
           </div>
 
@@ -67,31 +68,25 @@ const Footer = () => (
             <h3 className="footer-title">Контакты</h3>
             <ul className="footer-contact">
               <li>
-                <span className="contact-icon">📍</span>
-                <span>Москва, Россия</span>
+                <span className="contact-icon">🏛️</span>
+                <span>Донецкий государственный университет</span>
               </li>
               <li>
-                <span className="contact-icon">📧</span>
-                <span>info@railway.ru</span>
+                <span className="contact-icon">👤</span>
+                <span>Мельников Денис</span>
               </li>
               <li>
-                <span className="contact-icon">📞</span>
-                <span>+7 (495) 123-45-67</span>
+                <span className="contact-icon">🔗</span>
+                <a href="https://vk.com/pivosrakom" target="_blank" rel="noopener noreferrer" style={{color: 'inherit'}}>vk.com/pivosrakom</a>
               </li>
             </ul>
 
             <div className="footer-social">
-              <a href="#telegram" className="social-link" aria-label="Telegram">
-                <span>📱</span>
-              </a>
-              <a href="#vk" className="social-link" aria-label="VK">
+              <a href="https://vk.com/pivosrakom" className="social-link" aria-label="VK" target="_blank" rel="noopener noreferrer">
                 <span>📘</span>
               </a>
-              <a href="#youtube" className="social-link" aria-label="YouTube">
-                <span>📺</span>
-              </a>
-              <a href="#github" className="social-link" aria-label="GitHub">
-                <span>💻</span>
+              <a href="https://donnu.ru" className="social-link" aria-label="ДонГУ" target="_blank" rel="noopener noreferrer">
+                <span>🎓</span>
               </a>
             </div>
           </div>
@@ -101,14 +96,14 @@ const Footer = () => (
         <div className="footer-bottom">
           <div className="footer-bottom-content">
             <p className="copyright">
-              © {new Date().getFullYear()} Информационная система железной дороги. Все права защищены.
+              © {new Date().getFullYear()} РИСЖ — Дипломная работа. Денис Мельников, ДонГУ.
             </p>
             <div className="footer-bottom-links">
-              <a href="#privacy">Политика конфиденциальности</a>
+              <a href="/about">О системе</a>
               <span className="separator">•</span>
-              <a href="#terms">Условия использования</a>
+              <a href="/glossary">Глоссарий</a>
               <span className="separator">•</span>
-              <a href="#cookies">Cookie</a>
+              <a href="/trains">Поезда</a>
             </div>
           </div>
         </div>

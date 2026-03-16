@@ -4,13 +4,51 @@
 }
 
 .profile-hero {
+  position: relative;
+  height: 320px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding: 60px 20px 40px;
-  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  justify-content: center;
+  overflow: hidden;
   color: white;
   text-align: center;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+
+    .profile-hero__slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      &.active { opacity: 1; }
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.52);
+    z-index: 1;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+  }
 }
 
 .profile-avatar {

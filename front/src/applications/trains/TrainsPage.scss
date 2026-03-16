@@ -1,0 +1,480 @@
+.trains-page {
+  min-height: 100vh;
+  background: #f1f5f9;
+}
+
+// Hero
+.trains-hero {
+  position: relative;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  color: white;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+
+    .trains-hero__slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      &.active { opacity: 1; }
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.52);
+    z-index: 1;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: white;
+      text-shadow: 0 4px 16px rgba(0,0,0,0.5);
+
+      @media (max-width: 768px) { font-size: 2.2rem; }
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: white;
+      opacity: 0.92;
+      margin-bottom: 48px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+  }
+
+  &__stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+
+    @media (max-width: 768px) { gap: 30px; flex-wrap: wrap; }
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__stat-num {
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #fff, #a5f3fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__stat-label {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+  }
+}
+
+// Container
+.trains-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+}
+
+// Section
+.trains-section {
+  margin-bottom: 80px;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 48px;
+
+    h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(to right, #14b8a6, #3b82f6);
+        border-radius: 2px;
+      }
+    }
+
+    p {
+      color: #64748b;
+      font-size: 1.05rem;
+      margin-top: 20px;
+    }
+  }
+}
+
+// Filters
+.trains-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.trains-filter-btn {
+  padding: 8px 20px;
+  border-radius: 24px;
+  border: 2px solid #e2e8f0;
+  background: white;
+  color: #475569;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: #14b8a6;
+    color: #14b8a6;
+  }
+
+  &.active {
+    background: linear-gradient(135deg, #14b8a6, #3b82f6);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+  }
+}
+
+// Trains grid
+.trains-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.train-card {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  padding: 28px 24px 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+    border-color: #14b8a6;
+  }
+
+  &__icon {
+    font-size: 3rem;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  &__badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  &__name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 10px;
+  }
+
+  &__meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 12px;
+  }
+
+  &__desc {
+    font-size: 0.88rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+// Inventions
+.inventions-section {
+  background: white;
+  border-radius: 24px;
+  padding: 60px 40px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+
+  @media (max-width: 768px) { padding: 40px 20px; }
+}
+
+.inventions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.invention-card {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 28px 0;
+  border-bottom: 1px solid #f1f5f9;
+  transition: all 0.2s;
+
+  &:last-child { border-bottom: none; }
+
+  &:hover {
+    padding-left: 12px;
+  }
+
+  &__year {
+    flex-shrink: 0;
+    width: 72px;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #14b8a6;
+    padding-top: 2px;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    font-size: 2rem;
+    width: 48px;
+    height: 48px;
+    background: #f0fdf9;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__body {
+    flex: 1;
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+  }
+
+  &__author {
+    font-size: 0.82rem;
+    color: #14b8a6;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.65;
+    margin: 0;
+  }
+}
+
+// Facts
+.facts-section {
+  .trains-section__header { margin-bottom: 36px; }
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.fact-card {
+  background: white;
+  border-radius: 16px;
+  padding: 28px 24px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    border-color: #14b8a6;
+  }
+
+  &__icon {
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+  }
+
+  h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 0.88rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+// Modal
+.train-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+.train-modal {
+  background: white;
+  border-radius: 24px;
+  padding: 48px 40px;
+  max-width: 520px;
+  width: 100%;
+  position: relative;
+  animation: slideUp 0.3s ease;
+
+  @media (max-width: 768px) { padding: 32px 24px; }
+
+  &__close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #94a3b8;
+    cursor: pointer;
+    line-height: 1;
+
+    &:hover { color: #0f172a; }
+  }
+
+  &__icon {
+    font-size: 4rem;
+    margin-bottom: 16px;
+    display: block;
+    text-align: center;
+  }
+
+  &__badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    margin: 0 auto 20px;
+    display: block;
+    width: fit-content;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0f172a;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  &__specs {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  &__spec {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 12px 20px;
+    text-align: center;
+
+    .label {
+      display: block;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+  }
+
+  &__desc {
+    color: #475569;
+    line-height: 1.7;
+    font-size: 0.95rem;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

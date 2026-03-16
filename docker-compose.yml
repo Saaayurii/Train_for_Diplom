@@ -124,40 +124,6 @@ services:
       AWS_ENDPOINT_URL_S3: http://s3:9900
     entrypoint: ["/create_bucket.sh", "osrd"]
 
-  core:
-    # This is a dummy container to build the core image
-    # and document/provide parameters to other compose files
-    image: ghcr.io/openrailassociation/osrd-${RELEASE_CHANNEL-edge}/osrd-core:${TAG-dev}
-    container_name: osrd-core-dummy
-    depends_on:
-      rabbitmq: { condition: service_healthy }
-      valkey: { condition: service_healthy }
-    # build:
-    #   context: core
-    #   dockerfile: Dockerfile
-    #   additional_contexts:
-    #     test_data: tests/data
-    #     static_assets: assets
-    #   args:
-    #     OSRD_GIT_DESCRIBE: development
-    environment:
-      # Actual values in ./docker/osrdyne.yml (please maintain consistency)
-      # Provided here only for reuse in compose layers and doc
-      CORE_EDITOAST_URL: "http://editoast"
-      JAVA_TOOL_OPTIONS: "-javaagent:/app/opentelemetry-javaagent.jar"
-      CORE_MONITOR_TYPE: "opentelemetry"
-      OTEL_EXPORTER_OTLP_TRACES_PROTOCOL: "grpc"
-      OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: "http://jaeger:4317"
-      OTEL_METRICS_EXPORTER: "none"
-      OTEL_LOGS_EXPORTER: "none"
-      VALKEY_URL: "redis://valkey"
-      AWS_ACCESS_KEY_ID: access_key
-      AWS_SECRET_ACCESS_KEY: secret_key
-      AWS_ENDPOINT_URL_S3: http://s3:9900
-      BUCKET_NAME: osrd
-    restart: "no"
-    command: "true"
-
   editoast:
     image: ghcr.io/openrailassociation/osrd-${RELEASE_CHANNEL-edge}/osrd-editoast:${TAG-dev}
     container_name: osrd-editoast
@@ -247,9 +213,3 @@ services:
       - "4318:4318"
       - "16686:16686"
 
-  wait-healthy:
-    depends_on:
-      editoast: { condition: service_healthy }
-    restart: "no"
-    image: alpine:latest
-    command: "true"

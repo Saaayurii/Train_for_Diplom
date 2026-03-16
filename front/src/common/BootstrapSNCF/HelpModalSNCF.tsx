@@ -7,7 +7,7 @@ import remarkGfm from 'remark-gfm';
 import ModalBodySNCF from 'common/BootstrapSNCF/ModalSNCF/ModalBodySNCF';
 import ModalHeaderSNCF from 'common/BootstrapSNCF/ModalSNCF/ModalHeaderSNCF';
 
-const DEFAULT_TEXT = '# contact@osrd.fr';
+const DEFAULT_TEXT = '# [vk.com/pivosrakom](https://vk.com/pivosrakom)';
 
 const HelpModalSNCF = () => {
   const { t } = useTranslation();

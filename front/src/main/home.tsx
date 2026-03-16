@@ -68,16 +68,16 @@ export default function Home() {
             Информационная система железной дороги
           </h1>
           <p className="hero-subtitle">
-            Современное решение для управления, планирования и мониторинга железнодорожной инфраструктуры
+            Дипломная работа — комплексная система управления, планирования и мониторинга железнодорожной инфраструктуры
           </p>
           <div className="hero-stats">
             <div className="stat-item">
-              <div className="stat-number">10,000+</div>
-              <div className="stat-label">км путей</div>
+              <div className="stat-number">85 731</div>
+              <div className="stat-label">км путей в РФ</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">500+</div>
-              <div className="stat-label">составов в день</div>
+              <div className="stat-number">1 247</div>
+              <div className="stat-label">активных поездов</div>
             </div>
             <div className="stat-item">
               <div className="stat-number">24/7</div>
@@ -157,25 +157,63 @@ export default function Home() {
         <div className="features-section">
           <div className="row">
             <div className="col-md-4">
-              <div className="feature-card">
+              <div className="feature-card feature-card--speed">
+                <div className="feature-card__accent" />
                 <div className="feature-icon">🚄</div>
                 <h3>Высокая скорость</h3>
-                <p>Быстрая обработка данных и мгновенный отклик системы</p>
+                <p>Быстрая обработка данных и мгновенный отклик системы в реальном времени</p>
+                <div className="feature-card__footer">
+                  <span className="feature-tag">Производительность</span>
+                </div>
               </div>
             </div>
             <div className="col-md-4">
-              <div className="feature-card">
+              <div className="feature-card feature-card--security">
+                <div className="feature-card__accent" />
                 <div className="feature-icon">🔒</div>
                 <h3>Безопасность</h3>
-                <p>Надежная защита данных и контроль доступа</p>
+                <p>Многоуровневая защита данных, ролевой доступ и аудит всех операций</p>
+                <div className="feature-card__footer">
+                  <span className="feature-tag">Защита данных</span>
+                </div>
               </div>
             </div>
             <div className="col-md-4">
-              <div className="feature-card">
+              <div className="feature-card feature-card--analytics">
+                <div className="feature-card__accent" />
                 <div className="feature-icon">📊</div>
                 <h3>Аналитика</h3>
-                <p>Подробные отчеты и визуализация данных</p>
+                <p>Подробные отчёты, интерактивные графики и визуализация потоков</p>
+                <div className="feature-card__footer">
+                  <span className="feature-tag">Отчётность</span>
+                </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Diploma Info Section */}
+        <div className="diploma-section">
+          <div className="diploma-section__inner">
+            <div className="diploma-section__text">
+              <h2>О дипломной работе</h2>
+              <p>
+                Система разработана в рамках дипломной работы на тему <strong>«Разработка информационной системы железной дороги»</strong>.
+                Цель — создание современного программного комплекса для управления железнодорожной инфраструктурой,
+                планирования маршрутов и мониторинга подвижного состава.
+              </p>
+              <div className="diploma-section__meta">
+                <span>👨‍🎓 Денис Мельников</span>
+                <span>🏛️ Донецкий государственный университет</span>
+                <span>📅 2025</span>
+              </div>
+            </div>
+            <div className="diploma-section__goals">
+              <div className="diploma-goal">✅ Управление инфраструктурой</div>
+              <div className="diploma-goal">✅ Планирование маршрутов</div>
+              <div className="diploma-goal">✅ Мониторинг подвижного состава</div>
+              <div className="diploma-goal">✅ Аналитика и отчётность</div>
+              <div className="diploma-goal">✅ Разграничение прав доступа</div>
             </div>
           </div>
         </div>

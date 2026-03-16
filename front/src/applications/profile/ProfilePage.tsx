@@ -1,26 +1,60 @@
+import { useState, useEffect } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 
-import NavBar from 'common/NavBar';
 import { ModalProvider } from 'common/BootstrapSNCF/ModalSNCF/ModalProvider';
+import ImageWithFallback from 'common/ImageWithFallback';
+import NavBar from 'common/NavBar';
 import useAuth from 'utils/hooks/useAuth';
+
 import './ProfilePage.scss';
+
+const trainImages = [
+  '/assets/train/image.png',
+  '/assets/train/image copy.png',
+  '/assets/train/image copy 2.png',
+  '/assets/train/image copy 3.png',
+  '/assets/train/image copy 4.png',
+  '/assets/train/image copy 5.png',
+];
 
 export default function ProfilePage() {
   const navigate = useNavigate();
   const { username, logout } = useAuth();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % trainImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <ModalProvider>
       <NavBar />
       <div className="profile-page">
         <div className="profile-hero">
-          <div className="profile-avatar">
-            <span className="profile-avatar__initials">
-              {username ? username.charAt(0).toUpperCase() : '?'}
-            </span>
+          <div className="profile-hero__bg">
+            {trainImages.map((img, index) => (
+              <div
+                key={img}
+                className={`profile-hero__slide ${index === currentImageIndex ? 'active' : ''}`}
+              >
+                <ImageWithFallback src={img} alt={`Поезд ${index + 1}`} showPlaceholder={false} />
+              </div>
+            ))}
+            <div className="profile-hero__overlay" />
           </div>
-          <h1 className="profile-username">{username || 'Пользователь'}</h1>
-          <p className="profile-role">Пользователь системы</p>
+          <div className="profile-hero__content">
+            <div className="profile-avatar">
+              <span className="profile-avatar__initials">
+                {username ? username.charAt(0).toUpperCase() : '?'}
+              </span>
+            </div>
+            <h1 className="profile-username">{username || 'Пользователь'}</h1>
+            <p className="profile-role">Пользователь системы</p>
+          </div>
         </div>
 
         <div className="profile-container">

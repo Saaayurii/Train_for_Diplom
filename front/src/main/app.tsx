@@ -5,7 +5,12 @@ import 'i18n';
 
 import AboutView from 'applications/about/AboutView';
 import AuthPage from 'applications/auth/AuthPage';
+import DashboardPage from 'applications/dashboard/DashboardPage';
+import GlossaryPage from 'applications/glossary/GlossaryPage';
 import ProfilePage from 'applications/profile/ProfilePage';
+import RoutesPage from 'applications/routes/RoutesPage';
+import SchedulePage from 'applications/schedule/SchedulePage';
+import TrainsPage from 'applications/trains/TrainsPage';
 import HomeEditor from 'applications/editor/Home';
 import Project from 'applications/operationalStudies/views/Project';
 import ProjectList from 'applications/operationalStudies/views/ProjectList';
@@ -50,8 +55,28 @@ const router = createBrowserRouter([
     element: <AboutView />,
   },
   {
+    path: 'trains',
+    element: <TrainsPage />,
+  },
+  {
     path: 'profile',
     element: <ProfilePage />,
+  },
+  {
+    path: 'dashboard',
+    element: <DashboardPage />,
+  },
+  {
+    path: 'schedule',
+    element: <SchedulePage />,
+  },
+  {
+    path: 'routes',
+    element: <RoutesPage />,
+  },
+  {
+    path: 'glossary',
+    element: <GlossaryPage />,
   },
   {
     path: 'map/*',

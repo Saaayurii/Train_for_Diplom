@@ -168,36 +168,165 @@
   border-top: 2px solid #e5e7eb;
 
   .feature-card {
-    text-align: center;
-    padding: 40px 20px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    padding: 36px 28px 28px;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    transition: all 0.35s ease;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      border-radius: 20px 0 0 20px;
+    }
+
+    &__footer {
+      margin-top: auto;
+      padding-top: 20px;
+    }
+
+    &--speed {
+      .feature-card__accent { background: linear-gradient(to bottom, #14b8a6, #06b6d4); }
+      .feature-icon { color: #14b8a6; }
+      .feature-tag { background: rgba(20, 184, 166, 0.1); color: #0d9488; }
+      &:hover { border-color: #14b8a6; box-shadow: 0 16px 40px rgba(20, 184, 166, 0.15); }
+    }
+
+    &--security {
+      .feature-card__accent { background: linear-gradient(to bottom, #6366f1, #8b5cf6); }
+      .feature-icon { color: #6366f1; }
+      .feature-tag { background: rgba(99, 102, 241, 0.1); color: #4f46e5; }
+      &:hover { border-color: #6366f1; box-shadow: 0 16px 40px rgba(99, 102, 241, 0.15); }
+    }
+
+    &--analytics {
+      .feature-card__accent { background: linear-gradient(to bottom, #f59e0b, #ef4444); }
+      .feature-icon { color: #f59e0b; }
+      .feature-tag { background: rgba(245, 158, 11, 0.1); color: #d97706; }
+      &:hover { border-color: #f59e0b; box-shadow: 0 16px 40px rgba(245, 158, 11, 0.15); }
+    }
 
     &:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      background: linear-gradient(135deg, #fff 0%, #f3f4f6 100%);
+      transform: translateY(-6px);
     }
 
     .feature-icon {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      animation: bounce 2s infinite;
+      font-size: 2.8rem;
+      margin-bottom: 18px;
+      display: block;
+      line-height: 1;
     }
 
     h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #1f2937;
-      margin-bottom: 12px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 10px;
     }
 
     p {
       color: #6b7280;
-      line-height: 1.6;
+      line-height: 1.65;
+      font-size: 0.95rem;
+      margin: 0;
     }
+  }
+
+  .feature-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+}
+
+// Diploma Section
+.diploma-section {
+  margin-top: 80px;
+  padding: 60px 48px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #14b8a6 100%);
+  border-radius: 24px;
+  margin-bottom: 80px;
+
+  &__inner {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 32px;
+    }
+  }
+
+  &__text {
+    flex: 1;
+    color: white;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: white;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+      opacity: 0.9;
+      margin-bottom: 24px;
+
+      strong { color: #a5f3fc; }
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    span {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      background: rgba(255,255,255,0.1);
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+  }
+
+  &__goals {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 280px;
+  }
+}
+
+.diploma-goal {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 12px 20px;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(255,255,255,0.18);
   }
 }
 

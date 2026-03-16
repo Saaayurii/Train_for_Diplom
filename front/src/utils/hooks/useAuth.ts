@@ -72,6 +72,13 @@ function useAuth() {
       dispatch(setAuthStatus('pending'));
       login()
         .unwrap()
+        .then((result) => {
+          if (result.type === 'redirect') {
+            window.location.href = result.url;
+          } else {
+            dispatch(loginSuccess({ username: result.username }));
+          }
+        })
         .catch((error) => {
           if (error?.status === 404) {
             // Gateway not available — run in standalone/guest mode, no console noise
@@ -108,7 +115,7 @@ function useAuth() {
     username: data?.name ?? username,
     isUserLogged,
     impersonatedUser,
-    isLoading: authStatus === 'idle' || authStatus === 'pending' || (authStatus === 'success' && !data),
+    isLoading: authStatus === 'idle' || authStatus === 'pending',
     authError: authStatus === 'unavailable' ? 'auth_unavailable'
              : authStatus === 'failed'      ? 'auth_failed'
              : null,

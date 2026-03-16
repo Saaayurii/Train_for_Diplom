@@ -51,8 +51,8 @@ const ReleaseInformation = () => {
                     width={192}
                   />
                 </a>
-                <h2>Железная дорога</h2>
-                <h3>Конструктор железных дорог с открытым исходным кодом</h3>
+                <h2>Дипломная работа</h2>
+                <h3>Разработка информационной системы железной дороги</h3>
               </div>
               <table className="table table-bordered">
                 <caption className="sr-only">Titre</caption>
@@ -67,6 +67,7 @@ const ReleaseInformation = () => {
                   </tr>
                 </thead>
                 <tbody>
+                  {serviceRow('Автор', 'Денис Мельников')}
                   {serviceRow('Editoast', editoastVersion?.git_describe)}
                   {serviceRow('Front', import.meta.env.VITE_OSRD_GIT_DESCRIBE)}
                 </tbody>

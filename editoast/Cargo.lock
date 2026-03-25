@@ -1910,12 +1910,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "geojson"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "510c094bfc76ea34d02eee00833254945b70491d79a9c0b050abed6eaa799ffb"
+dependencies = [
+ "log",
+ "serde",
+ "serde_json",
+ "thiserror 2.0.18",
+ "tinyvec",
+]
+
+[[package]]
 name = "geos"
 version = "11.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5996ab8d8f04d4cc9a749952864bf4dc8e6f8c660ec50ea60cb647c4ce3517ac"
 dependencies = [
- "geojson",
+ "geojson 0.24.2",
  "geos-sys",
  "libc",
 ]
@@ -4189,7 +4202,7 @@ dependencies = [
  "editoast_derive",
  "educe",
  "enum-map",
- "geojson",
+ "geojson 1.0.0",
  "iso8601",
  "rand 0.10.0",
  "regex",
@@ -4757,6 +4770,7 @@ version = "1.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bfa5fdc3bce6191a1dbc8c02d5c8bffcf557bafa17c124c5264a458f1b0613fa"
 dependencies = [
+ "serde",
  "tinyvec_macros",
 ]
 

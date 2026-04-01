@@ -95,7 +95,7 @@ openssl = "0.10.75"
 opentelemetry = { version = "0.31.0", default-features = false, features = [
   "trace",
 ] }
-opentelemetry-otlp = { version = "0.31.0", default-features = false, features = [
+opentelemetry-otlp = { version = "0.31.1", default-features = false, features = [
   "grpc-tonic",
   "trace",
 ] }

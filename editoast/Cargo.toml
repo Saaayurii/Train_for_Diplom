@@ -86,7 +86,7 @@ geojson = { version = "0.24", default-features = false }
 geos = { version = "11.0.1", features = ["json"] }
 hostname = "0.4.2"
 http = "1.4"
-indexmap = "2.13"
+indexmap = "2.14"
 itertools = "0.14.0"
 lapin = { version = "4.1.0", default-features = false, features = ["tokio"] }
 linkme = "0.3.35"
